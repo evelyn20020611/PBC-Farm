@@ -45,9 +45,8 @@ class Farm(tk.Frame):
         self.button_seed_eggplan = tk.Button(self, image=self.image_seed_eggplant)
         self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
         self.button_back = tk.Button(self, image=self.image_back_icon)
-        
         self.button_waterer = tk.Button(self, image = self.image_waterer, command=self.click_button_waterer, height=1, width=2)
-    	self.button_
+
         # grid 的部分寫這邊
     	self.background_label.grid(row = 0, column = 0, columnspan = 10)
         self.back.grid(row = 1, column = 0, columnspan = 10)
