@@ -53,6 +53,41 @@ class Farm(tk.Frame):
         self.book.grid(row = 8, column = 0, columnspan = 10)
         self.seedstore.grid(row = 9, column = 0, columnspan = 10)
         self.waterer.grid(row = 10, column = 5, columnspan = 10)
+        
+    # 種子商店
+    def open_store(): # 點了種子商店按鈕後的function
+        global open_store  # 不確定這行要不要
+        seed_store = tk.Tk()
+        seed_store.title('Seed Store')
+        seed_store.geometry('500x300')
+        self.havesd = 0
+        self.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 10)
+        self.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 10)
+        self.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 10)
+
+    def put_peppersd(self):
+        self.havesd = 1
+        self.Label_peppersd = tk.Label(seed_store, image = self.image_seed_pepper)
+        self.peppersd.grid(row = 5.5, column = 5, columnspan = 10)
+        if self.havesd == 1:
+            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
+            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
+
+    def put_eggplantsd(self): 
+        self.havesd = 1
+        self.Label_eggplantsd = tk.Label(seed_store, image = self.image_seed_eggplant)
+        self.eggplantsd.grid(row = 5.5 , column = 5, columnspan = 10)
+        if self.havesd == 1:
+            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
+            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
+
+    def put_coriandersd(self):
+        self.havesd = 1
+        self.Label_coriandersd = tk.Label(seed_store, image = self.image_seed_coriander)
+        self.coriandersd.grid(row = 5.5 , column = 5, columnspan = 10)
+        if self.havesd == 1:
+            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
+            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
 
     def cclick_button_waterer(self):
         self.lb1Num.configure("")  # 配置，回傳文字1
