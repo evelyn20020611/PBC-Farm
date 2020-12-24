@@ -9,7 +9,7 @@ class Farm(tk.Frame):
         self.createWidgets()
 
     def createWidgets(self):
-    	# 匯入圖片的部分寫這邊self.image_ = ImageTk.PhotoImage(file = 'graph/.PNG')  # 
+        # 匯入圖片的部分寫這邊
         self.image_bg = ImageTk.PhotoImage(file = 'graph/rug2.PNG')  # 背景圖片
         self.image_waterer = ImageTk.PhotoImage(file = 'graph/waterer.PNG')  # waterer
         self.image_small_pepper = ImageTk.PhotoImage(file = 'graph/small_pepper.PNG')  # small_pepper
@@ -22,7 +22,7 @@ class Farm(tk.Frame):
         self.image_seed_package_coriander = ImageTk.PhotoImage(file = 'graph/seed_package_coriander.PNG')  # seed_package_coriander
         self.image_seed_eggplant = ImageTk.PhotoImage(file = 'graph/seed_eggplant.PNG')  # seed_eggplant
         self.image_seed_coriander = ImageTk.PhotoImage(file = 'graph/seed_coriander.PNG')  # seed_coriander
-    	self.image_mid_pepper = ImageTk.PhotoImage(file = 'graph/mid_pepper.PNG')  # mid_pepper
+        self.image_mid_pepper = ImageTk.PhotoImage(file = 'graph/mid_pepper.PNG')  # mid_pepper
         self.image_mid_eggplant = ImageTk.PhotoImage(file = 'graph/mid_eggplant.PNG')  # mid_eggplant
         self.image_mid_coriander = ImageTk.PhotoImage(file = 'graph/mid_coriander.PNG')  # mid_coriander
         self.image_empty_pot = ImageTk.PhotoImage(file = 'graph/empty_pot.PNG')  # empty_pot
@@ -35,10 +35,10 @@ class Farm(tk.Frame):
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.PNG')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
 
-    	# 產生label的部分寫這邊
-    	self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
+        # 產生label的部分寫這邊
+        self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
 
-    	# 產生button 的部分寫這邊
+        # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon)
         self.button_seed_pepper = tk.Button(self, image=self.image_seed_pepper)
@@ -48,11 +48,11 @@ class Farm(tk.Frame):
         self.button_waterer = tk.Button(self, image = self.image_waterer, command=self.click_button_waterer, height=1, width=2)
 
         # grid 的部分寫這邊
-    	self.background_label.grid(row = 0, column = 0, columnspan = 10)
-        self.back.grid(row = 1, column = 0, columnspan = 10)
-        self.book.grid(row = 8, column = 0, columnspan = 10)
-        self.seedstore.grid(row = 9, column = 0, columnspan = 10)
-        self.waterer.grid(row = 10, column = 5, columnspan = 10)
+        self.background_label.grid(row = 0, column = 0, columnspan = 10)
+        self.button_back.grid(row = 1, column = 0, columnspan = 10)
+        self.button_book.grid(row = 8, column = 0, columnspan = 10)
+        self.button_seedstore.grid(row = 9, column = 0, columnspan = 10)
+        self.button_waterer.grid(row = 10, column = 5, columnspan = 10)
         
     # 種子商店
     def open_store(): # 點了種子商店按鈕後的function
@@ -89,10 +89,10 @@ class Farm(tk.Frame):
             self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
             self.button_exit.grid(row = 1, column = 2, columnspan = 10)
 
-    def cclick_button_waterer(self):
+    def click_button_waterer(self):
         self.lb1Num.configure("")  # 配置，回傳文字1
 
-    def click_button_back(self):
+    #def click_button_back(self):
         
 
     def click_button_book(self):
