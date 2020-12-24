@@ -57,6 +57,18 @@ class Farm(tk.Frame):
     def cclick_button_waterer(self):
         self.lb1Num.configure("")  # 配置，回傳文字1
 
+    def click_button_back(self):
+        
+
+    def click_button_book(self):
+        self.image_book.grid(row = 3, column = 3, columnspan = 10)
+        self.image_big_coriander.grid(row = 5, column = 3, columnspan = 10)
+        self.image_big_eggplant.grid(row = 5, column = 4, columnspan = 10)
+        self.image_big_eggplant.grid(row = 5, column = 5, columnspan = 10)
+        self.image_big_eggplant.grid(row = 5, column = 5, columnspan = 10)
+        self.image_back_icon.grid(row = 7, column =7, columnspan = 10)
+
+
 
 game = Farm()
 game.master.title("PBC Farm")
