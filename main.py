@@ -126,7 +126,7 @@ class Farm(tk.Frame):  # try
         lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
         lab2.grid(row=7, column=3, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW)
         lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
-        lab3.grid(row=, column=5, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW)
+        lab3.grid(row=7, column=5, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW)
 
 
     # 種子商店功能-青椒種子
