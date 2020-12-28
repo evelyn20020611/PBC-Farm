@@ -170,10 +170,9 @@ class Farm(tk.Frame):  # try
 
 
     def put_peppersd(self):
-        self.havesd = 1
-        self.Label_peppersd = tk.Label(seed_store, image = self.image_seed_pepper)
-        self.peppersd.grid(row = 5.5, column = 5, columnspan = 10)
-        self.target = "pepper"
+        self.target = "pepper"  # 設立target
+                                # 放置pot with seed
+
 
     
 
