@@ -106,12 +106,21 @@ class Farm(tk.Frame):  # try
         self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
         
          # 標示圖片下文字說明
+<<<<<<< HEAD
         self.labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
         self.labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
         self.label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
         self.label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
         self.label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
         self.label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
+=======
+        labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
+        labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
+        label_button_waterer = tk.Label(self, text='澆水器/採收器', height=1, width=15, bg='white', fg='black')
+        label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
+        label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
+        label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
+>>>>>>> 8e39c6f84e6a5bad01b44de8f0150a47c6c2f677
         
 
     def init_grid(self):
@@ -295,7 +304,7 @@ class Farm(tk.Frame):  # try
         self.pas = "no"
         if self.level == 0:
             a = tk.messagebox.askquestion("澆水小問題",ranQ)
-            print("a", a)
+            #print("a", a)
             if a == self.question_libary[ranQ]:
                 self.Timer()
             
@@ -317,7 +326,7 @@ class Farm(tk.Frame):  # try
 
         if self.level == 1:
             a = tk.messagebox.askquestion("澆水小問題",ranQ)
-            print("a", a)
+            #print("a", a)
             if a == self.question_libary[ranQ]:
                 self.Timer()
                 if target == "coriander":
@@ -356,7 +365,6 @@ class Farm(tk.Frame):  # try
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 self.button_harvest.grid(row = 10, column = 5, sticky=(tk.W))
-                self.label_button_waterer.destroy()
                 self.label_button_harvest = tk.Label(self, text='採收!', height=1, width=15, bg='white', fg='black')
                 self.label_button_harvest.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
 
@@ -387,7 +395,7 @@ class Farm(tk.Frame):  # try
                     '一九八四，是英國作家喬治·歐威爾所創作的一部反烏托邦小說':'yes','基督山恩仇記為小仲馬的作品':'','查拉圖斯特拉如是說是華格納的作品':'no',
                     '西線無戰事是海明威的作品':'no','純粹理性批判是康德的哲學作品':'yes','柏拉圖是亞里斯多德的學生':'no','希臘三哲包含柏拉圖、蘇格拉底、亞里斯多德':'yes',
                     '東羅馬帝國和西羅馬帝國的滅亡時間相差超過1000年':'no','神聖羅馬帝國的首都是羅馬':'no','可麗露是種法國甜點，原料包含牛奶':'yes',
-                    '美式咖啡是義式濃縮加水':'yes','吉利馬札羅是著名的咖啡產地':'yes'
+                    '美式咖啡是義式濃縮加水':'yes','吉利馬札羅是著名的咖啡產地':'yes','香菜很好吃':'yes','香菜可以避免宿醉':'yes','我吃麵一定會把香菜挑起來':'no','我去吃自助餐的時候一定會吃茄子':'yes','把香菜挑起來是一件好事':'no',
         
                     }
 
