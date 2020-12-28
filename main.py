@@ -161,6 +161,7 @@ class Farm(tk.Frame):
         button_seed_eggplant = tk.Button(master = seed_store, text = '2')
         button_seed_coriander = tk.Button(master = seed_store, text = '3')
 
+        # grid 上去
         button_seed_pepper.grid(row = 0, column = 0)
         button_seed_eggplant.grid(row = 0, column = 1)
         button_seed_coriander.grid(row = 0, column = 2)
