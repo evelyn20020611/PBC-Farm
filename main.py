@@ -138,7 +138,6 @@ class Farm(tk.Frame):  # try
         self.button_book.grid(row = 1, column = 2)
 
  
-        
         '''
         # grid 的部分寫這邊_修改後的
         self.background_label.grid(row = 0, column = 0, columnspan = 10, rowspan = 11)
@@ -157,9 +156,9 @@ class Farm(tk.Frame):  # try
         seed_store.geometry('500x300')
 
         # 產生button
-        button_seed_pepper = tk.Button(master = seed_store, text = '1')
-        button_seed_eggplant = tk.Button(master = seed_store, text = '2')
-        button_seed_coriander = tk.Button(master = seed_store, text = '3')
+        button_seed_pepper = tk.Button(master = seed_store, text = '1', command = put_peppersd)
+        button_seed_eggplant = tk.Button(master = seed_store, text = '2', command = put_eggplantsd)
+        button_seed_coriander = tk.Button(master = seed_store, text = '3', command = put_eggplantsd)
 
         # grid 上去
         button_seed_pepper.grid(row = 0, column = 0)
