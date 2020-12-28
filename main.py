@@ -76,7 +76,7 @@ class Farm(tk.Frame):  # try
         self.image_back_icon_name = ImageTk.PhotoImage(file = 'graph/back_icon_name.png')  # back_icon_name
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
-        self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.jpg')  # pot_with_seed
+        self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.png')  # pot_with_seed
         self.image_big_coriander_ill = ImageTk.PhotoImage(file = 'graph/big_coriander_ill.png')
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
@@ -106,6 +106,15 @@ class Farm(tk.Frame):  # try
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
         self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
         self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
+        
+         # 標示圖片下文字說明
+        labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
+        labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
+        label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
+        label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
+        label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
+        label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
+        
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
@@ -115,6 +124,15 @@ class Farm(tk.Frame):  # try
         self.timer_label.grid(row = 2, column = 0, columnspan = 5)
         self.button_save.grid(row = 3, column = 0, columnspan = 5)
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
+
+        self.button_seedstore.grid(row = 10, column = 1, sticky=(tk.W))
+        self.button_waterer.grid(row = 10, column = 5, sticky=(tk.W))
+        self.button_book.grid(row = 10, column = 9, sticky=(tk.W))
+        self.timer_label.grid(row = 0, column = 0, sticky=(tk.W))
+        self.button_save.grid(row = 0, column = 5)
+
+        self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
+
 
 
     # 種子商店功能
@@ -150,7 +168,7 @@ class Farm(tk.Frame):  # try
         self.seeded  = True
         self.target = "pepper"  
         self.empty_pot_label.destroy()
-        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
+        self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
         tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
         
     # 種子商店功能-茄子種子
@@ -158,7 +176,7 @@ class Farm(tk.Frame):  # try
         self.seeded = True
         self.target = "eggplant"
         self.empty_pot_label.destroy()
-        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
+        self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
         tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
          
     # 種子商店功能-香菜種子
@@ -166,7 +184,7 @@ class Farm(tk.Frame):  # try
         self.seeded = True
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
-        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
+        self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
         tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
          
     # 圖鑑功能
@@ -256,10 +274,10 @@ class Farm(tk.Frame):  # try
             self.big_pepper_label.destroy()
 
         self.createWidgets()
-        self.button_waterer.grid(row = 1, column = 2)
+        self.button_waterer.grid(row = 10, column = 5, sticky=(tk.W))
 
         self.amount[self.target] += 1
-        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
+        self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
         self.level = 0
         self.seeded = False
         self.Timer_ended = True
@@ -286,15 +304,15 @@ class Farm(tk.Frame):  # try
             
                 if target == "coriander":
                     self.image_pot_with_seed_label.destroy()
-                    self.small_coriander_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.small_coriander_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 if target == "eggplant":
                     self.image_pot_with_seed_label.destroy()
-                    self.small_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.small_eggplant_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                        
                 if target == "pepper":
                     self.image_pot_with_seed_label.destroy()
-                    self.small_pepper_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.small_pepper_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 self.pas = "yes"
             else:
@@ -307,15 +325,15 @@ class Farm(tk.Frame):  # try
                 self.Timer()
                 if target == "coriander":
                     self.small_coriander_label.destroy()
-                    self.mid_coriander_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.mid_coriander_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 if target == "eggplant":
                     self.small_eggplant_label.destroy()
-                    self.mid_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.mid_eggplant_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                        
                 if target == "pepper":
                     self.small_pepper_label.destroy()
-                    self.mid_pepper_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.mid_pepper_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 self.pas = "yes"
             else:
@@ -328,19 +346,19 @@ class Farm(tk.Frame):  # try
             if a == self.question_libary[ranQ]:
                 if target == "coriander":
                     self.mid_coriander_label.destroy()
-                    self.big_coriander_label.grid(row = 0, column = 0,columnspan = 5)
+                    self.big_coriander_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
                     
                 if target == "eggplant":
                     self.mid_eggplant_label.destroy()
-                    self.big_eggplant_label.grid(row = 0, column = 0,columnspan = 5)
+                    self.big_eggplant_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
                        
                 if target == "pepper":
                     self.mid_pepper_label.destroy()
-                    self.big_pepper_label.grid(row = 0, column = 0,columnspan = 5)
+                    self.big_pepper_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
                     
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
-                self.button_harvest.grid(row = 1, column = 2)
+                self.button_harvest.grid(row = 10, column = 5, sticky=(tk.W))
 
             else:
                 tk.messagebox.showerror('答錯了','學海無涯，回頭是岸')
