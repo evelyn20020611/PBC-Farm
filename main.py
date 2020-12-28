@@ -166,11 +166,11 @@ class Farm(tk.Frame):  # try
         amount_eggplant_label.grid(row = 3, column = 3)
         
         # 標示圖片下文字說明
-        lab11 = tk.Label(r1, text='青椒', height=1, width=15, bg='white', fg='black')
+        lab11 = tk.Label(illustrated_book, text='青椒', height=1, width=15, bg='white', fg='black')
         lab11.grid(row=2, column=1)
-        lab22 = tk.Label(r1, text='茄子', height=1, width=15, bg='white', fg='black')
+        lab22 = tk.Label(illustrated_book, text='茄子', height=1, width=15, bg='white', fg='black')
         lab22.grid(row=2, column=2)
-        lab33 = tk.Label(r1, text='香菜', height=1, width=15, bg='white', fg='black')
+        lab33 = tk.Label(illustrated_book, text='香菜', height=1, width=15, bg='white', fg='black')
         lab33.grid(row=2, column=3)
 
     # 採收功能
