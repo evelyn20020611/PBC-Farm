@@ -102,8 +102,8 @@ class Farm(tk.Frame):  # try
         
         self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed
         self.image_letschat_label = tk.Label(self,image=self.image_letschat)  # 產生self.image_letschat
-        self.image_1.eggplant_label = tk.Label(self,image=self.image_1.eggplant)  # 產生self.image_1.eggplant
-        self.image_2.eggplant_label = tk.Label(self,image=self.image_2.eggplant)  # 產生self.image_2.eggplant
+        self.image_1_eggplant_label = tk.Label(self,image=self.image_1_eggplant)  # 產生self.image_1.eggplant
+        self.image_2_eggplant_label = tk.Label(self,image=self.image_2_eggplant)  # 產生self.image_2.eggplant
 
 
         # 產生button 的部分寫這邊
