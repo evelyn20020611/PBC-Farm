@@ -46,6 +46,7 @@ class Farm(tk.Frame):  # try
         self.image_big_coriander_ill = ImageTk.PhotoImage(file = 'graph/big_coriander_ill.png')
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
+        self.image_hoe = ImageTk.PhotoImage(file = 'graph/hoe.png')  # hoe 鋤頭
 
     def createWidgets(self):
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
@@ -67,7 +68,7 @@ class Farm(tk.Frame):  # try
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-        self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
+        self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
