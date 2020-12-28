@@ -119,15 +119,15 @@ class Farm(tk.Frame):  # try
         # grid 上去
         #sticky = tk.N+tk.S
         # columnspan = 2, rowspan = 2,
-        self.button_seed_package_pepper.grid(row = 5, column = 1, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
-        self.button_seed_package_eggplant.grid(row = 5, column = 3, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
-        self.button_seed_package_coriander.grid(row = 5, column = 5, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
+        self.button_seed_package_pepper.grid(row = 5, column = 1, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 50, pady = 50)
+        self.button_seed_package_eggplant.grid(row = 5, column = 3, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 50, pady = 50)
+        self.button_seed_package_coriander.grid(row = 5, column = 5, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 50, pady = 50)
         lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
-        lab1.grid(row=7, column=1, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
+        lab1.grid(row=7, column=1, sticky = tk.NE + tk.SW, padx = 50, pady = 10)
         lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
-        lab2.grid(row=7, column=3, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
+        lab2.grid(row=7, column=3, sticky = tk.NE + tk.SW, padx = 50, pady = 10)
         lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
-        lab3.grid(row=7, column=5, sticky = tk.NE + tk.SW, padx = 30, pady = 30)
+        lab3.grid(row=7, column=5, sticky = tk.NE + tk.SW, padx = 50, pady = 10)
 
 
     # 種子商店功能-青椒種子
