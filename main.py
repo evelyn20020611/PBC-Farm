@@ -156,9 +156,9 @@ class Farm(tk.Frame):  # try
         seed_store.geometry('500x300')
 
         # 產生button
-        button_seed_pepper = tk.Button(master = seed_store, text = '1', command = put_peppersd)
-        button_seed_eggplant = tk.Button(master = seed_store, text = '2', command = put_eggplantsd)
-        button_seed_coriander = tk.Button(master = seed_store, text = '3', command = put_eggplantsd)
+        button_seed_pepper = tk.Button(master = seed_store, text = '1', command = self.put_peppersd)
+        button_seed_eggplant = tk.Button(master = seed_store, text = '2', command = self.put_eggplantsd)
+        button_seed_coriander = tk.Button(master = seed_store, text = '3', command = self.put_eggplantsd)
 
         # grid 上去
         button_seed_pepper.grid(row = 0, column = 0)
