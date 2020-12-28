@@ -40,6 +40,7 @@ class Farm(tk.Frame):  # try
         self.image_back_icon_name = ImageTk.PhotoImage(file = 'graph/back_icon_name.png')  # back_icon_name
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
+        self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.PNG')  # pot_with_seed
 
 
         #self.image_seedstore_icon = self.image_seedstore_icon.resize((80,60),Image.ANTIALIAS)
@@ -121,6 +122,7 @@ class Farm(tk.Frame):  # try
         self.small_eggplant_label = tk.Label(self,image=self.image_small_eggplant)  #產生small_eggplant盆栽
         self.mid_eggplant_label = tk.Label(self,image=self.image_mid_eggplant)  #產生mid_eggplant盆栽
         self.big_eggplant_label = tk.Label(self,image=self.image_big_eggplant)  #產生big_eggplant盆栽
+        self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed
 
         # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
@@ -156,9 +158,9 @@ class Farm(tk.Frame):  # try
         seed_store.geometry('500x300')
 
         # 產生button
-        button_seed_pepper = tk.Button(master = seed_store, image = self.image_seed_package_pepper , command = self.put_peppersd)
-        button_seed_eggplant = tk.Button(master = seed_store, text = '2', command = self.put_eggplantsd)
-        button_seed_coriander = tk.Button(master = seed_store, text = '3', command = self.put_eggplantsd)
+        button_seed_pepper = tk.Button(master = seed_store, text = 'pepper' , command = self.put_peppersd)
+        button_seed_eggplant = tk.Button(master = seed_store, text = 'eggplant', command = self.put_eggplantsd)
+        button_seed_coriander = tk.Button(master = seed_store, text = 'coriander', command = self.put_eggplantsd)
 
         # grid 上去
         button_seed_pepper.grid(row = 0, column = 0)
@@ -168,7 +170,8 @@ class Farm(tk.Frame):  # try
 
     def put_peppersd(self):
         self.target = "pepper"  # 設立target
-                                # 放置pot with seed
+        self.empty_pot_label.destroy()
+        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     def put_eggplantsd(self): 
         self.target = "eggplant"
