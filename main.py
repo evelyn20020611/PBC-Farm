@@ -5,7 +5,7 @@ import tkinter.font as tkFont
 from PIL import Image
 import tkinter.messagebox #這個是訊息框，對話方塊的關鍵
 
-class Farm(tk.Frame):
+class Farm(tk.Frame):  # try
     def __init__(self):
         tk.Frame.__init__(self)
         self.grid()  # 產生網格
