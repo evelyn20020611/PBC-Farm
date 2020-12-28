@@ -128,8 +128,6 @@ class Farm(tk.Frame):
         self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
         self.button_back = tk.Button(self, image=self.image_back_icon, command = self.click_button_back)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-        
-
 
         # grid 的部分寫這邊
         self.background_label.grid(row = 0, column = 0)
@@ -139,9 +137,15 @@ class Farm(tk.Frame):
         self.button_waterer.grid(row = 1, column = 3)
         self.button_book.grid(row = 1, column = 4)
         
-        
-
-
+        '''
+        # grid 的部分寫這邊_修改後的
+        self.background_label.grid(row = 0, column = 0, columnspan = 10, rowspan = 11)
+        self.button_back.grid(row = 1, column = 0)
+        self.button_book.grid(row = 8, column = 0)
+        self.button_seedstore.grid(row = 9, column = 0)
+        self.button_waterer.grid(row = 10, column = 5)
+        '''
+ 
         
     # 種子商店
     def open_store(self): # 點了種子商店按鈕後的function
