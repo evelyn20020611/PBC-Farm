@@ -130,7 +130,7 @@ class Farm(tk.Frame):  # try
         lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
         
         if self.seeded == True:
-            r1.destroy
+            r1.destroy()
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
