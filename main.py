@@ -88,7 +88,7 @@ class Farm(tk.Frame):  # try
         
         r1 = tk.Toplevel()
         r1.title('Seed Store')
-        r1.geometry('500x300')
+        r1.geometry('800x600')
 
         # 產生button
         self.button_seed_package_pepper = tk.Button(r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
@@ -130,7 +130,7 @@ class Farm(tk.Frame):  # try
         # 產生視窗
         illustrated_book = tk.Toplevel()
         illustrated_book.title('illustration_book')
-        illustrated_book.geometry('500x300')
+        illustrated_book.geometry('800x600')
 
         # 產生label
         big_coriander_label = tk.Label(illustrated_book, image = self.image_big_coriander_ill)
