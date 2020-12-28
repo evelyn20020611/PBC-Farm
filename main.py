@@ -129,7 +129,7 @@ class Farm(tk.Frame):  # try
         lab3 = tk.Label(r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
         lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
         
-        if self.seeded == True:
+        if self.seeded is True:
             r1.destroy()
 
     # 種子商店功能-青椒種子
