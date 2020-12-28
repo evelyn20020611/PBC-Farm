@@ -104,27 +104,16 @@ class Farm(tk.Frame):  # try
     # 種子商店功能-青椒種子
     def put_peppersd(self):
         self.target = "pepper"  # 設立target
-
-                                # 放置pot with seed
+        self.empty_pot_label.destroy()
+        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
-        self.havesd = 1
-        self.Label_eggplantsd = tk.Label(seed_store, image = self.image_seed_eggplant)
-        self.eggplantsd.grid(row = 5.5 , column = 5, columnspan = 10)
         self.target = "eggplant"
+        self.empty_pot_label.destroy()
+        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     # 種子商店功能-香菜種子
-
-        self.empty_pot_label.destroy()
-        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
-    def put_eggplantsd(self): 
-        self.target = "eggplant"  # 設立target
-        self.empty_pot_label.destroy()
-        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
-
     def put_coriandersd(self):
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
