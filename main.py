@@ -142,8 +142,9 @@ class Farm(tk.Frame):  # try
         lab3 = tk.Label(r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
         lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
         
-        if self.seeded is True:
-            r1.destroy()
+        #if self.seeded is True:
+            #r1.destroy()
+        
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
@@ -151,6 +152,7 @@ class Farm(tk.Frame):  # try
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
+        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
         
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
@@ -158,14 +160,16 @@ class Farm(tk.Frame):  # try
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-        
+        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+         
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
         self.seeded = True
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-        
+        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+         
     # 圖鑑功能
     def click_button_book(self):
         # 產生視窗
@@ -182,12 +186,12 @@ class Farm(tk.Frame):  # try
         amount_eggplant_label = tk.Label(illustrated_book, text = self.amount['eggplant'], font=('TkDefaultFont', 20))
 
         # grid
-        big_coriander_label.grid(row = 1, column = 3)
-        big_pepper_label.grid(row = 1, column = 1)
-        big_eggplant_label.grid(row = 1, column = 2)
-        amount_coriander_label.grid(row = 3, column = 3)
-        amount_pepper_label.grid(row = 3, column = 1)
-        amount_eggplant_label.grid(row = 3, column = 2)
+        big_coriander_label.grid(row = 1, column = 3, padx = 25,pady = 30)
+        big_pepper_label.grid(row = 1, column = 1, padx = 25,pady = 30)
+        big_eggplant_label.grid(row = 1, column = 2, padx = 25,pady = 30)
+        amount_coriander_label.grid(row = 3, column = 3, padx = 25,pady = 30)
+        amount_pepper_label.grid(row = 3, column = 1, padx = 25,pady = 30)
+        amount_eggplant_label.grid(row = 3, column = 2, padx = 25,pady = 30)
         
         # 標示圖片下文字說明
         lab11 = tk.Label(illustrated_book, text='青椒', height=1, width=15, bg='white', fg='black')
