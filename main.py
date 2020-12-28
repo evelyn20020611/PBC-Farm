@@ -302,7 +302,7 @@ class Farm(tk.Frame):  # try
         self.pas = "no"
         if self.level == 0:
             a = tk.messagebox.askquestion("澆水小問題",ranQ)
-            print("a", a)
+            #print("a", a)
             if a == self.question_libary[ranQ]:
                 self.Timer()
             
@@ -324,7 +324,7 @@ class Farm(tk.Frame):  # try
 
         if self.level == 1:
             a = tk.messagebox.askquestion("澆水小問題",ranQ)
-            print("a", a)
+            #print("a", a)
             if a == self.question_libary[ranQ]:
                 self.Timer()
                 if target == "coriander":
