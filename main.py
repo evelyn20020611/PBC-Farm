@@ -40,7 +40,7 @@ class Farm(tk.Frame):  # try
         self.image_back_icon_name = ImageTk.PhotoImage(file = 'graph/back_icon_name.png')  # back_icon_name
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
-        self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.PNG')  # pot_with_seed
+        self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.jpg')  # pot_with_seed
 
 
         # 產生label的部分寫這邊
@@ -66,7 +66,7 @@ class Farm(tk.Frame):  # try
         #self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
 
         # 初始grid 的部分寫這邊
-        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 3)
+        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.button_seedstore.grid(row = 1, column = 0)
         self.button_waterer.grid(row = 1, column = 1)
         self.button_book.grid(row = 1, column = 2)
@@ -110,7 +110,7 @@ class Farm(tk.Frame):  # try
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
-    '''            
+           
     # 圖鑑功能
     def click_button_book(self):
         illustrated_book = tk.Tk()
@@ -121,7 +121,6 @@ class Farm(tk.Frame):  # try
         image_big_coriander.grid(row = 1, column = 0)
         image_big_eggplant.grid(row = 1, column = 1)
         image_big_pepper.grid(row = 1, column = 2)
-    '''
 
 
     # 澆水器功能
@@ -189,7 +188,7 @@ class Farm(tk.Frame):  # try
                     
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
-                self.button_dig.grid
+                #self.button_dig.grid
                 
                 
         if self.pas == "yes":
