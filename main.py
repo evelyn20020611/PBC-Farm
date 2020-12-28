@@ -160,7 +160,6 @@ class Farm(tk.Frame):
         # 不確定這行要不要
         seed_store = tk.Tk()
         seed_store.title('Seed Store')
-        seed_store.geometry('500x300')
         self.havesd = 0
         self.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 10)
         self.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 10)
@@ -267,9 +266,6 @@ class Farm(tk.Frame):
 
     def click_button_back(self):
         pass
-
-    def click_button_seedstore(self):
-        pass   
         
 
     def click_button_book(self):
