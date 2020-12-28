@@ -174,14 +174,16 @@ class Farm(tk.Frame):  # try
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     def put_eggplantsd(self): 
-        self.target = "eggplant"
+        self.target = "eggplant"  # 設立target
+        self.empty_pot_label.destroy()
+        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     def put_coriandersd(self):
-        self.target = "coriander"
-
+        self.target = "coriander"  # 設立target
+        self.empty_pot_label.destroy()
+        self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
                 
-
     # 圖鑑功能
     def click_button_book(self):
         illustrated_book = tk.Tk()
