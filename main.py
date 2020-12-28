@@ -17,11 +17,13 @@ class Farm(tk.Frame):  # try
         self.amount = {'coriander':0,'eggplant':0,'pepper':0}
         self.level = 0
         self.target = ""
+        self.timer_label = tk.Label(text="0", font=('Helvetica', 48), fg='black')
         self.grid()  # 產生網格
         self.createImages()
         self.createWidgets()
         self.init_grid()
         self.read_data()
+
 
     def read_data(self):
         with open('init_data.json', 'r') as f:
@@ -29,24 +31,21 @@ class Farm(tk.Frame):  # try
         self.amount['coriander'] = data[0]
         self.amount['eggplant'] = data[1]
         self.amount['pepper'] = data[2]
-        self.level = data[3]
-        self.target = data[4]
 
     # 計時器
     def Timer(self):
-        return ############### 如果不想等的話
         self.Timer_ended = False
         self.start_time = time.time()
-        self.end_time = self.start_time + 30
+        self.end_time = self.start_time + 8
         self.update_clock()
 
     # 每秒更新計時器
     def update_clock(self):
-        now = int(self.end_time - time.time())
-        if now < 0:
+        self.now = int(self.end_time - time.time())
+        if self.now < 0:
             self.Timer_ended = True
             return
-        self.timer_label.configure(text=now)
+        self.timer_label.configure(text=self.now)
         self.after(1000, self.update_clock)
 
     def createImages(self):
@@ -98,7 +97,6 @@ class Farm(tk.Frame):  # try
         
         self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed
 
-        self.timer_label = tk.Label(text="0", font=('Helvetica', 48), fg='black')
 
         # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
@@ -150,7 +148,6 @@ class Farm(tk.Frame):  # try
     # 種子商店功能-青椒種子
     def put_peppersd(self):
         self.seeded  = True
-        self.Timer()
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
@@ -158,7 +155,6 @@ class Farm(tk.Frame):  # try
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
         self.seeded = True
-        self.Timer()
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
@@ -166,7 +162,6 @@ class Farm(tk.Frame):  # try
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
         self.seeded = True
-        self.Timer()
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
@@ -264,6 +259,7 @@ class Farm(tk.Frame):  # try
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.level = 0
         self.seeded = False
+        self.Timer_ended = True
 
 
 
@@ -273,7 +269,7 @@ class Farm(tk.Frame):  # try
             tk.messagebox.showerror('尚未選擇種子','你的盆栽是空的....\n去種子商店選一種種子吧！')
             return
         if not self.Timer_ended:
-            tk.messagebox.showerror('大哥你別急','下次澆水的時間還沒到喔...\n再耐心等等吧！')
+            tk.messagebox.showerror('大哥你別急','下次澆水的時間還沒到喔...\n還有%s秒鐘，再等等吧！'%(self.now))
             return
         a = ""
         target = self.target
@@ -324,7 +320,6 @@ class Farm(tk.Frame):  # try
         if self.level == 2:
             #   小問題請改以下三行
             a = tk.messagebox.askquestion("確認","3 x 5 = 15 ?")
-            print("a", a)
             if a == "yes":
                 if target == "coriander":
                     self.mid_coriander_label.destroy()
