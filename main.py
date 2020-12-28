@@ -15,6 +15,7 @@ class Farm(tk.Frame):  # try
         self.level = 0
         self.pas = "no"
         self.target = ""
+        self.seeded = False
 
     def createImages(self):
     	# 匯入圖片的部分寫這邊self.image_ = ImageTk.PhotoImage(file = 'graph/.png')  # 
@@ -103,18 +104,21 @@ class Farm(tk.Frame):  # try
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
+        self.seeded  = True
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
+        self.seeded = True
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
+        self.seeded = True
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
@@ -152,11 +156,15 @@ class Farm(tk.Frame):  # try
 
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.level = 0
+        self.seeded = False
 
 
 
     # 澆水器功能（完成）
     def click_button_waterer(self):
+        if not self.seeded:
+            tk.messagebox.showerror('尚未選擇種子','你的盆栽是空的....\n去種子商店選一種種子吧！')
+            return
         a = ""
         target = self.target
         self.pas = "no"
