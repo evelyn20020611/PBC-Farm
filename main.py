@@ -184,6 +184,46 @@ class Farm(tk.Frame):  # try
         lab22.grid(row=2, column=2)
         lab33 = tk.Label(illustrated_book, text='香菜', height=1, width=15, bg='white', fg='black')
         lab33.grid(row=2, column=3)
+                # 青椒
+        easy_or_not1 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not1.grid(row=4, column=1)
+        easy_or_not11 = tk.Label(illustrated_book, text='★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not11.grid(row=5, column=1)
+        characteristic1 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic1.grid(row=6, column=1)
+        characteristic11 = tk.Label(illustrated_book, text='小孩子都不會吃', height=1, width=15, bg='white', fg='black')
+        characteristic11.grid(row=7, column=1)
+        characteristic111 = tk.Label(illustrated_book, text='害羞又靦腆的Big Girl', height=1, width=15, bg='white', fg='black')
+        characteristic111.grid(row=8, column=1)
+        # 台詞:
+        # 那個><不要害怕吃我嘛…我很營養健康的說！
+        # 茄子
+        easy_or_not2 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not2.grid(row=4, column=2)
+        easy_or_not22 = tk.Label(illustrated_book, text='★★★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not22.grid(row=5, column=2)
+        characteristic2 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic2.grid(row=6, column=2)
+        characteristic22 = tk.Label(illustrated_book, text='食物界的恥辱', height=1, width=15, bg='white', fg='black')
+        characteristic22.grid(row=7, column=2)
+        characteristic222 = tk.Label(illustrated_book, text='講話結巴又台灣國語的小胖', height=1, width=20, bg='white', fg='black')
+        characteristic222.grid(row=8, column=2)
+        # 台詞:
+        # 喂…那、那邊那個帥、帥哥，不要看我這樣，偶是本屆紫色食物PK中奪得「金拍甲」冠軍餒。
+
+        # 香菜
+        easy_or_not3 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not3.grid(row=4, column=3)
+        easy_or_not33 = tk.Label(illustrated_book, text='★★★★★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not33.grid(row=5, column=3)
+        characteristic3 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic3.grid(row=6, column=3)
+        characteristic33 = tk.Label(illustrated_book, text='備受唾棄的噁心東東', height=1, width=15, bg='white', fg='black')
+        characteristic33.grid(row=7, column=3)
+        characteristic333 = tk.Label(illustrated_book, text='窈窕潑辣的大正妹', height=1, width=15, bg='white', fg='black')
+        characteristic333.grid(row=8, column=3)
+        # 台詞:
+        # 是小鮮肉耶~~~姊姊偷偷告訴你，白飯佐香菜很讚啊嘶~快來跟姊姊炒飯~~/////
 
     # 採收功能
     def click_button_harvest(self):
