@@ -123,14 +123,14 @@ class Farm(tk.Frame):  # try
         self.button_waterer.grid(row = 1, column = 2)
         self.button_book.grid(row = 1, column = 4)
         self.timer_label.grid(row = 2, column = 0, columnspan = 5)
-        self.button_save.grid(row = 3, column = 0, columnspan = 5)
+        self.button_save.grid(row = 0, column = 3, columnspan = 5)
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
 
         self.button_seedstore.grid(row = 10, column = 1, sticky=(tk.W))
         self.button_waterer.grid(row = 10, column = 5, sticky=(tk.W))
         self.button_book.grid(row = 10, column = 9, sticky=(tk.W))
         self.timer_label.grid(row = 0, column = 0, sticky=(tk.W))
-        self.button_save.grid(row = 0, column = 5)
+
 
         self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
 
@@ -267,7 +267,6 @@ class Farm(tk.Frame):  # try
         # 產生澆水鍵，消除採收鍵     
         self.button_harvest.destroy()
         self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
-        self.button_save.grid(row = 0, column = 5)
 
         # destroy 大植物
         if self.target == "coriander":
@@ -285,7 +284,7 @@ class Farm(tk.Frame):  # try
         self.level = 0
         self.seeded = False
         self.Timer_ended = True
-        self.label_button_harvest.destroy()
+        self.button_save.grid(row = 0, column = 5)
 
 
 
