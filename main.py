@@ -124,7 +124,7 @@ class Farm(tk.Frame):
 
         # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
-        self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.click_button_seedstore)
+        self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_seed_pepper = tk.Button(self, image=self.image_seed_pepper)
         self.button_seed_eggplan = tk.Button(self, image=self.image_seed_eggplant)
         self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
@@ -143,7 +143,7 @@ class Farm(tk.Frame):
         self.button_waterer.grid(row = 1, column = 3)
         self.button_book.grid(row = 1, column = 4)
 
-
+ 
         
         '''
         # grid 的部分寫這邊_修改後的
@@ -157,7 +157,7 @@ class Farm(tk.Frame):
         
     # 種子商店
     def open_store(self): # 點了種子商店按鈕後的function
-        global open_store  # 不確定這行要不要
+        # 不確定這行要不要
         seed_store = tk.Tk()
         seed_store.title('Seed Store')
         seed_store.geometry('500x300')
