@@ -123,11 +123,11 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_eggplant.grid(row = 5, column = 3, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 50, pady = 50)
         self.button_seed_package_coriander.grid(row = 5, column = 5, columnspan = 2, rowspan = 2, sticky = tk.NE + tk.SW, padx = 50, pady = 50)
         lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
-        lab1.grid(row=7, column=1, sticky = tk.NE + tk.SW, padx = 75)
+        lab1.grid(row=7, column=1, sticky = tk.NE + tk.SW, padx = 85)
         lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
-        lab2.grid(row=7, column=3, sticky = tk.NE + tk.SW, padx = 75)
+        lab2.grid(row=7, column=3, sticky = tk.NE + tk.SW, padx = 85)
         lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
-        lab3.grid(row=7, column=5, sticky = tk.NE + tk.SW, padx = 75)
+        lab3.grid(row=7, column=5, sticky = tk.NE + tk.SW, padx = 85)
 
 
     # 種子商店功能-青椒種子
