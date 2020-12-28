@@ -65,13 +65,13 @@ class Farm(tk.Frame):  # try
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-        #self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
+        self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
 
         # 初始grid 的部分寫這邊
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.button_seedstore.grid(row = 1, column = 0)
-        self.button_waterer.grid(row = 1, column = 1)
-        self.button_book.grid(row = 1, column = 2)
+        self.button_waterer.grid(row = 1, column = 2)
+        self.button_book.grid(row = 1, column = 4)
 
  
         
@@ -103,7 +103,7 @@ class Farm(tk.Frame):  # try
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
-        self.target = "pepper"  # 設立target
+        self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
@@ -118,8 +118,7 @@ class Farm(tk.Frame):  # try
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
-           
+     
     # 圖鑑功能
     def click_button_book(self):
         # 產生視窗
@@ -136,8 +135,26 @@ class Farm(tk.Frame):  # try
         big_pepper_label.grid(row = 1, column = 2)
         big_eggplant_label.grid(row = 1, column = 3)
 
+    # 採收功能
+    def click_button_harvest(self):
+        # 產生澆水鍵，消除採收鍵
+        self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
+        self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed      
+        self.button_harvest.destroy()  
+        self.button_waterer.grid(row = 1, column = 2)
 
-    # 澆水器功能
+        # destroy 大植物
+        if self.target == "coriander":
+            self.big_coriander_label.destroy()        
+        if self.target == "eggplant":
+            self.big_eggplant_label.destroy()               
+        if self.target == "pepper":
+            self.big_pepper_label.destroy()
+
+        self.image_pot_with_seed_label.grid(row = 0, column = 0, columnspan = 5)
+
+
+    # 澆水器功能（完成）
     def click_button_waterer(self):
         a = ""
         target = self.target
@@ -163,7 +180,7 @@ class Farm(tk.Frame):  # try
                 self.pas = "yes"
 
         if self.level == 1:
-            #   小問題請改以下三行
+            # 小問題請改以下三行
             a = tk.messagebox.askquestion("確認","哪一個不是韓國三大經紀公司？(答案：Woollim)")
             print("a", a)
             if a == "yes":
@@ -190,19 +207,19 @@ class Farm(tk.Frame):  # try
             if a == "yes":
                 if target == "coriander":
                     self.mid_coriander_label.destroy()
-                    self.big_coriander_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.big_coriander_label.grid(row = 0, column = 0,columnspan = 5)
                     
                 if target == "eggplant":
                     self.mid_eggplant_label.destroy()
-                    self.big_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.big_eggplant_label.grid(row = 0, column = 0,columnspan = 5)
                        
                 if target == "pepper":
                     self.mid_pepper_label.destroy()
-                    self.big_pepper_label.grid(row = 0,column = 0,columnspan = 5)
+                    self.big_pepper_label.grid(row = 0, column = 0,columnspan = 5)
                     
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
-                #self.button_dig.grid
+                self.button_harvest.grid(row = 1, column = 2)
                 
                 
         if self.pas == "yes":
@@ -210,6 +227,7 @@ class Farm(tk.Frame):  # try
 
 
 
+# 主程式
 game = Farm()
 game.master.title("PBC Farm")
 game.mainloop()
