@@ -125,20 +125,17 @@ class Farm(tk.Frame):
         # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
-        self.button_back = tk.Button(self, image=self.image_back_icon, command = self.click_button_back)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
 
         
         # 初始grid 的部分寫這邊
-        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
+        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 3)
 
 
         # grid 的部分寫這邊
-        #self.background_label.grid(row = 0, column = 0)
-        self.button_back.grid(row = 1, column = 1)
-        self.button_seedstore.grid(row = 1, column = 2)
-        self.button_waterer.grid(row = 1, column = 3)
-        self.button_book.grid(row = 1, column = 4)
+        self.button_seedstore.grid(row = 1, column = 0)
+        self.button_waterer.grid(row = 1, column = 1)
+        self.button_book.grid(row = 1, column = 2)
 
  
         
@@ -160,15 +157,16 @@ class Farm(tk.Frame):
         seed_store.geometry('500x300')
 
         # 產生button
-        self.button_seed_pepper = tk.Button(seed_store, image=self.image_seed_pepper)
-        self.button_seed_eggplan = tk.Button(seed_store, image=self.image_seed_eggplant)
-        self.button_seed_coriander = tk.Button(seed_store, image=self.image_seed_coriander)
+        button_seed_pepper = tk.Button(master = seed_store, text = '1')
+        button_seed_eggplant = tk.Button(master = seed_store, text = '2')
+        button_seed_coriander = tk.Button(master = seed_store, text = '3')
 
-        # 不確定這行要不要
+        button_seed_pepper.grid(row = 0, column = 0)
+        button_seed_eggplant.grid(row = 0, column = 1)
+        button_seed_coriander.grid(row = 0, column = 2)
+
         self.havesd = 0
-        self.button_seed_package_peppe.grid(row = 0, column = 0)
-        self.button_seed_package_eggplant.grid(row = 0, column = 1)
-        self.button_seed_package_coriander.grid(row = 0, column = 2)
+
 
 
     def put_peppersd(self):
@@ -176,9 +174,7 @@ class Farm(tk.Frame):
         self.Label_peppersd = tk.Label(seed_store, image = self.image_seed_pepper)
         self.peppersd.grid(row = 5.5, column = 5, columnspan = 10)
         self.target = "pepper"
-        if self.havesd == 1:
-            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
-            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
+
     
 
     def put_eggplantsd(self): 
@@ -186,37 +182,30 @@ class Farm(tk.Frame):
         self.Label_eggplantsd = tk.Label(seed_store, image = self.image_seed_eggplant)
         self.eggplantsd.grid(row = 5.5 , column = 5, columnspan = 10)
         self.target = "eggplant"
-        if self.havesd == 1:
-            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
-            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
+
 
     def put_coriandersd(self):
         self.havesd = 1
         self.Label_coriandersd = tk.Label(seed_store, image = self.image_seed_coriander)
         self.coriandersd.grid(row = 5.5 , column = 5, columnspan = 10)
         self.target = "coriander"
-        if self.havesd == 1:
-            self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
-            self.button_exit.grid(row = 1, column = 2, columnspan = 10)
+
 
                 
 
-
-
-    def click_button_back(self):
-        pass
-        
-
+    # 圖鑑功能
     def click_button_book(self):
-        pass
-        self.image_book.grid(row = 3, column = 3, columnspan = 10)
-        self.image_big_coriander.grid(row = 5, column = 3, columnspan = 10)
-        self.image_big_eggplant.grid(row = 5, column = 4, columnspan = 10)
-        self.image_big_eggplant.grid(row = 5, column = 5, columnspan = 10)
-        self.image_big_eggplant.grid(row = 5, column = 5, columnspan = 10)
-        self.image_back_icon.grid(row = 7, column =7, columnspan = 10)
+        illustrated_book = tk.Tk()
+        illustrated_book.title('illustrated_book')
+        illustrated_book.geometry('500x300')
+
+        self.image_big_coriander.grid(row = 1, column = 0)
+        self.image_big_eggplant.grid(row = 1, column = 1)
+        self.image_big_pepper.grid(row = 1, column = 2)
 
 
+
+    # 澆水器功能
     def click_button_waterer(self):
         a = ""
         target = "coriander"
@@ -280,7 +269,7 @@ class Farm(tk.Frame):
                     self.big_pepper_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 self.pas = "yes"
-                #self.button_waterer.destroy()   # 澆水器消失，看要不要改
+                self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 
                 
         if self.pas == "yes":
