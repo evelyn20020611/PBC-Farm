@@ -47,6 +47,7 @@ class Farm(tk.Frame):  # try
         self.image_big_coriander_ill = ImageTk.PhotoImage(file = 'graph/big_coriander_ill.png')
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
+        self.image_hoe = ImageTk.PhotoImage(file = 'graph/hoe.png')  # hoe 鋤頭
 
     def createWidgets(self):
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
@@ -68,7 +69,7 @@ class Farm(tk.Frame):  # try
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-        self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
+        self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
@@ -88,7 +89,7 @@ class Farm(tk.Frame):  # try
         
         r1 = tk.Toplevel()
         r1.title('Seed Store')
-        r1.geometry('500x300')
+        r1.geometry('800x600')
 
         # 產生button
         self.button_seed_package_pepper = tk.Button(r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
@@ -99,7 +100,12 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_pepper.grid(row = 0, column = 0)
         self.button_seed_package_eggplant.grid(row = 0, column = 1)
         self.button_seed_package_coriander.grid(row = 0, column = 2)
-
+        lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
+        lab1.grid(row=1, column=0)
+        lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
+        lab2.grid(row=1, column=1)
+        lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
+        lab3.grid(row=1, column=2)
 
 
     # 種子商店功能-青椒種子
@@ -128,7 +134,7 @@ class Farm(tk.Frame):  # try
         # 產生視窗
         illustrated_book = tk.Toplevel()
         illustrated_book.title('illustration_book')
-        illustrated_book.geometry('500x300')
+        illustrated_book.geometry('800x600')
 
         # 產生label
         big_coriander_label = tk.Label(illustrated_book, image = self.image_big_coriander_ill)
