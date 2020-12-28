@@ -139,7 +139,7 @@ class Farm(tk.Frame):  # try
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
         self.r1 = tk.Toplevel()
-        self.r1.title('Seed Store')
+        self.r1.title('種子商店')
         self.r1.geometry('1000x800')
 
         # 產生button
@@ -195,7 +195,7 @@ class Farm(tk.Frame):  # try
     def click_button_book(self):
         # 產生視窗
         illustrated_book = tk.Toplevel()
-        illustrated_book.title('illustration_book')
+        illustrated_book.title('蔬菜圖鑑')
         illustrated_book.geometry('800x600')
 
         # 產生label
