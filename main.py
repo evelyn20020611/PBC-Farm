@@ -41,8 +41,7 @@ class Farm(tk.Frame):
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
 
-<<<<<<< HEAD
-=======
+
         #self.image_seedstore_icon = self.image_seedstore_icon.resize((80,60),Image.ANTIALIAS)
         ''' 如果要用resize的話，路徑再改，還有size再變動
         def createWidgets(self):
@@ -107,7 +106,7 @@ class Farm(tk.Frame):
         self.image_conversation = ImageTk.PhotoImage(file = 'E:\\importan\\python\\202012_project_JULIA\\graph\\conversation.PNG')  # conversation 種子對話框
         '''
         
->>>>>>> c90fc036aeb724a55d64a16a87e7b537019712f0
+
         # 產生label的部分寫這邊
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
         self.empty_pot_label = tk.Label(self,image=self.image_empty_pot)  #產生空盆栽
@@ -131,24 +130,20 @@ class Farm(tk.Frame):
         self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
         self.button_back = tk.Button(self, image=self.image_back_icon, command = self.click_button_back)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-<<<<<<< HEAD
+
         
         # 初始grid 的部分寫這邊
         self.background_label.grid(row = 0, column = 0, columnspan = 5)
-=======
+
 
         # grid 的部分寫這邊
         self.background_label.grid(row = 0, column = 0)
->>>>>>> c90fc036aeb724a55d64a16a87e7b537019712f0
         self.button_back.grid(row = 1, column = 1)
         self.button_seedstore.grid(row = 1, column = 2)
         self.button_waterer.grid(row = 1, column = 3)
         self.button_book.grid(row = 1, column = 4)
-<<<<<<< HEAD
 
-        self.level = 0
 
-=======
         
         '''
         # grid 的部分寫這邊_修改後的
@@ -170,7 +165,7 @@ class Farm(tk.Frame):
         self.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 10)
         self.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 10)
         self.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 10)
->>>>>>> c90fc036aeb724a55d64a16a87e7b537019712f0
+
 
     def put_peppersd(self):
         pass
@@ -213,7 +208,7 @@ class Farm(tk.Frame):
         self.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 5)
     '''  
     def click_button_waterer(self):
-<<<<<<< HEAD
+
         seed_store = tk.Tk()
         seed_store.title('Seed Store')
         seed_store.geometry('500x300')
@@ -224,7 +219,7 @@ class Farm(tk.Frame):
         print('aaaa')
     '''
 
-=======
+
         self.pas = "no"
         if self.level == 0:
             #   小問題請改以下三行
@@ -290,7 +285,7 @@ class Farm(tk.Frame):
                 
         if self.pas == "yes":
             self.level += 1
->>>>>>> c90fc036aeb724a55d64a16a87e7b537019712f0
+
 
     def click_button_back(self):
         pass
