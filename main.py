@@ -81,9 +81,9 @@ class Farm(tk.Frame):  # try
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
         self.image_hoe = ImageTk.PhotoImage(file = 'graph/hoe.png')  # hoe 鋤頭
-        self.image_letschat = ImageTk.PhotoImage(file = 'graph/letschat.png')  # letschat
-        self.image_1.eggplant = ImageTk.PhotoImage(file = 'graph/1.eggplant.png')  # 1.eggplant 
-        self.image_2.eggplant = ImageTk.PhotoImage(file = 'graph/2.eggplant.png')  # 2.eggplant
+        self.image_letschat = ImageTk.PhotoImage(file = 'graph/letschat.jpg')  # letschat
+        self.image_1_eggplant = ImageTk.PhotoImage(file = 'graph/1_eggplant.jpg')  # 1.eggplant 
+        self.image_2_eggplant = ImageTk.PhotoImage(file = 'graph/2_eggplant.jpg')  # 2.eggplant
 
     def createWidgets(self):
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
