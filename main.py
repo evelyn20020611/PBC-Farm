@@ -9,12 +9,14 @@ class Farm(tk.Frame):  # try
     def __init__(self):
         tk.Frame.__init__(self)
         self.grid()  # 產生網格
+        self.createImages()
         self.createWidgets()
+        self.init_grid()
         self.level = 0
         self.pas = "no"
         self.target = ""
 
-    def createWidgets(self):
+    def createImages(self):
     	# 匯入圖片的部分寫這邊self.image_ = ImageTk.PhotoImage(file = 'graph/.png')  # 
         self.image_bg = ImageTk.PhotoImage(file = 'graph/rug2.PNG')  # 背景圖片
         self.image_waterer = ImageTk.PhotoImage(file = 'graph/waterer.PNG')  # waterer
@@ -45,7 +47,7 @@ class Farm(tk.Frame):  # try
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
 
-        # 產生label的部分寫這邊
+    def createWidgets(self):
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
         self.empty_pot_label = tk.Label(self,image=self.image_empty_pot)  #產生空盆栽
         self.small_coriander_label = tk.Label(self,image=self.image_small_coriander)  #產生small_coriander盆栽
@@ -67,6 +69,7 @@ class Farm(tk.Frame):  # try
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
         self.button_harvest = tk.Button(self, text = '採收', command = self.click_button_harvest)
 
+    def init_grid(self):
         # 初始grid 的部分寫這邊
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.button_seedstore.grid(row = 1, column = 0)
@@ -135,8 +138,7 @@ class Farm(tk.Frame):  # try
     # 採收功能
     def click_button_harvest(self):
         # 產生澆水鍵，消除採收鍵
-        self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
-        self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed      
+        self.createWidgets()     
         self.button_harvest.destroy()  
         self.button_waterer.grid(row = 1, column = 2)
 
@@ -148,7 +150,9 @@ class Farm(tk.Frame):  # try
         if self.target == "pepper":
             self.big_pepper_label.destroy()
 
-        self.image_pot_with_seed_label.grid(row = 0, column = 0, columnspan = 5)
+        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
+        self.level = 0
+
 
 
     # 澆水器功能（完成）
