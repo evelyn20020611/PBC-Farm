@@ -196,28 +196,6 @@ class Farm(tk.Frame):
             self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
             self.button_exit.grid(row = 1, column = 2, columnspan = 10)
 
-    
-    def click_button_seedstore(self): # 點了種子商店按鈕後的function
-        seed_store = tk.Tk()
-        seed_store.title('Seed Store')
-        #seed_store.geometry('500x300')
-        self.havesd = 0
-        self.button_seed_package_pepper = tk.Button(seed_store, image = self.image_seed_package_pepper, command = self.put_peppersd)    
-        self.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 5)
-        self.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 5)
-        self.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 5)
-    '''  
-    def click_button_waterer(self):
-
-        seed_store = tk.Tk()
-        seed_store.title('Seed Store')
-        seed_store.geometry('500x300')
-        self.havesd = 0
-        seed_store.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 10)
-        seed_store.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 10)
-        seed_store.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 10)
-        print('aaaa')
-    '''
 
     def click_button_waterer(self):
         self.pas = "no"
