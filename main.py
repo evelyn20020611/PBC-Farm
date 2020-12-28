@@ -125,9 +125,6 @@ class Farm(tk.Frame):
         # 產生button 的部分寫這邊
         self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
-        self.button_seed_pepper = tk.Button(self, image=self.image_seed_pepper)
-        self.button_seed_eggplan = tk.Button(self, image=self.image_seed_eggplant)
-        self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
         self.button_back = tk.Button(self, image=self.image_back_icon, command = self.click_button_back)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
 
@@ -157,17 +154,24 @@ class Farm(tk.Frame):
         
     # 種子商店
     def open_store(self): # 點了種子商店按鈕後的function
-        # 不確定這行要不要
+        # 產生視窗
         seed_store = tk.Tk()
         seed_store.title('Seed Store')
+        seed_store.geometry('500x300')
+
+        # 產生button
+        self.button_seed_pepper = tk.Button(seed_store, image=self.image_seed_pepper)
+        self.button_seed_eggplan = tk.Button(seed_store, image=self.image_seed_eggplant)
+        self.button_seed_coriander = tk.Button(seed_store, image=self.image_seed_coriander)
+
+        # 不確定這行要不要
         self.havesd = 0
-        self.button_seed_package_pepper.grid(row = 0, column = 1, columnspan = 10)
-        self.button_seed_package_eggplant.grid(row = 0, column = 2, columnspan = 10)
-        self.button_seed_package_coriander.grid(row = 0, column = 3, columnspan = 10)
+        self.button_seed_package_peppe.grid(row = 0, column = 0)
+        self.button_seed_package_eggplant.grid(row = 0, column = 1)
+        self.button_seed_package_coriander.grid(row = 0, column = 2)
 
 
     def put_peppersd(self):
-        pass
         self.havesd = 1
         self.Label_peppersd = tk.Label(seed_store, image = self.image_seed_pepper)
         self.peppersd.grid(row = 5.5, column = 5, columnspan = 10)
@@ -195,73 +199,8 @@ class Farm(tk.Frame):
             self.button_exit = tk.Button(text = "Click and Quit", command = seed_store.destroy)
             self.button_exit.grid(row = 1, column = 2, columnspan = 10)
 
-
-    def click_button_waterer(self):
-        self.pas = "no"
-        if self.level == 0:
-            #   小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","捷運中有哪一條線有經過台北車站？(答案:紅線)")
-            print("a", a)
-            if a == "yes":
-            
-                if target == "coriander":
-                    self.empty_pot_label.destroy()
-                    self.small_coriander_label.grid(row = 0,column = 0, sticky=(tk.W))
-                    
-                if target == "eggplant":
-                    self.empty_pot_label.destroy()
-                    self.small_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
-                       
-                if target == "pepper":
-                    self.empty_pot_label.destroy()
-                    self.small_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
-                    
-                self.pas = "yes"
-
-        if self.level == 1:
-            #   小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","哪一個不是韓國三大經紀公司？(答案：Woollim)")
-            print("a", a)
-            if a == "yes":
-            
-                if target == "coriander":
-                    self.small_coriander_label.destroy()
-                    self.mid_coriander_label.grid(row = 0,column = 0, sticky=(tk.W))
-                    
-                if target == "eggplant":
-                    self.small_eggplant_label.destroy()
-                    self.mid_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
-                       
-                if target == "pepper":
-                    self.small_pepper_label.destroy()
-                    self.mid_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
-                    
-                self.pas = "yes"
-            
-        
-        if self.level == 2:
-            #   小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","3 x 5 = 15 ?")
-            print("a", a)
-            if a == "yes":
-                if target == "coriander":
-                    self.mid_coriander_label.destroy()
-                    self.big_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
-                    
-                if target == "eggplant":
-                    self.mid_eggplant_label.destroy()
-                    self.big_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
-                       
-                if target == "pepper":
-                    self.mid_pepper_label.destroy()
-                    self.big_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
-                    
-                self.pas = "yes"
-                self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 
-                
-        if self.pas == "yes":
-            self.level += 1
+
 
 
     def click_button_back(self):
