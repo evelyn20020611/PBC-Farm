@@ -155,7 +155,7 @@ class Farm(tk.Frame):  # try
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-        tk.messagebox.Message('請關掉視窗唷')
+        tk.messagebox.showwarning('小提示','請關掉視窗唷')
         
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
@@ -164,7 +164,7 @@ class Farm(tk.Frame):  # try
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-        tk.messagebox.Message('請關掉視窗唷')
+        tk.messagebox.showwarning('小提示','請關掉視窗唷')
          
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
@@ -173,7 +173,7 @@ class Farm(tk.Frame):  # try
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-        tk.messagebox.Message('請關掉視窗唷')
+        tk.messagebox.showwarning('小提示','請關掉視窗唷')
          
     # 圖鑑功能
     def click_button_book(self):
