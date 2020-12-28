@@ -5,24 +5,36 @@ import tkinter.font as tkFont
 from PIL import Image
 import tkinter.messagebox #這個是訊息框，對話方塊的關鍵
 import time
-
+import json
 
 class Farm(tk.Frame):  # try
     def __init__(self):
         tk.Frame.__init__(self)
+        self.amount = {}
+        self.pas = "no"
+        self.Timer_ended = True
+        self.seeded = False
+        self.amount = {'coriander':0,'eggplant':0,'pepper':0}
+        self.level = 0
+        self.target = ""
         self.grid()  # 產生網格
         self.createImages()
         self.createWidgets()
         self.init_grid()
-        self.level = 0
-        self.pas = "no"
-        self.target = ""
-        self.seeded = False
-        self.Timer_ended = True
-        self.amount = {'coriander':0,'eggplant':0,'pepper':0}
+        self.read_data()
+
+    def read_data(self):
+        with open('init_data.json', 'r') as f:
+            data = json.load(f)
+        self.amount['coriander'] = data[0]
+        self.amount['eggplant'] = data[1]
+        self.amount['pepper'] = data[2]
+        self.level = data[3]
+        self.target = data[4]
 
     # 計時器
     def Timer(self):
+        return ############### 如果不想等的話
         self.Timer_ended = False
         self.start_time = time.time()
         self.end_time = self.start_time + 30
@@ -93,18 +105,21 @@ class Farm(tk.Frame):  # try
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
         self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
+        self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
-        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.button_seedstore.grid(row = 1, column = 0)
         self.button_waterer.grid(row = 1, column = 2)
         self.button_book.grid(row = 1, column = 4)
         self.timer_label.grid(row = 2, column = 0, columnspan = 5)
+        self.button_save.grid(row = 3, column = 0, columnspan = 5)
+
+        if self.target == "":
+            self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
 
 
- 
-        
+     
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
         r1 = tk.Toplevel()
@@ -286,6 +301,14 @@ class Farm(tk.Frame):  # try
                 
         if self.pas == "yes":
             self.level += 1
+
+    def click_button_save(self):
+        a = tkinter.messagebox.askquestion(title="儲存遊戲", message="請問要儲存進度嗎？")
+        with open("init_data.json","w") as f:
+            json.dump([self.amount['coriander'],self.amount['eggplant'],self.amount['pepper'],self.level,self.target], f)
+
+
+
 
 
 
