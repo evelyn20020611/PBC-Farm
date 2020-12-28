@@ -78,19 +78,26 @@ class Farm(tk.Frame):  # try
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
         # 產生視窗
-        seed_store = tk.Tk()
-        seed_store.title('Seed Store')
-        seed_store.geometry('500x300')
+        #seed_store = tk.Tk()
+        #seed_store.title('Seed Store')
+        #seed_store.geometry('500x300')
+        
+        r1 = tk.Toplevel()
+        r1.title('Seed Store')
+        r1.geometry('500x300')
 
         # 產生button
-        self.button_seed_pepper = tk.Button(master = seed_store, text = 'pepper' , command = self.put_peppersd)
-        self.button_seed_eggplant = tk.Button(master = seed_store, text = 'eggplant', command = self.put_eggplantsd)
-        self.button_seed_coriander = tk.Button(master = seed_store, text = 'coriander', command = self.put_coriandersd)
+        #self.button_seed_pepper = tk.Button(master = seed_store, text = 'pepper' , command = self.put_peppersd)
+        #self.button_seed_eggplant = tk.Button(master = seed_store, text = 'eggplant', command = self.put_eggplantsd)
+        #self.button_seed_coriander = tk.Button(master = seed_store, text = 'coriander', command = self.put_coriandersd)
+        self.button_seed_package_pepper = tk.Button(r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
+        self.button_seed_package_eggplant = tk.Button(r1, image = self.image_seed_package_eggplant, command = self.put_eggplantsd)
+        self.button_seed_package_coriander = tk.Button(r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
 
         # grid 上去
-        self.button_seed_pepper.grid(row = 0, column = 0)
-        self.button_seed_eggplant.grid(row = 0, column = 1)
-        self.button_seed_coriander.grid(row = 0, column = 2)
+        self.button_seed_package_pepper.grid(row = 0, column = 0)
+        self.button_seed_package_eggplant.grid(row = 0, column = 1)
+        self.button_seed_package_coriander.grid(row = 0, column = 2)
 
 
 
