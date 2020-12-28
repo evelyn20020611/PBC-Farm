@@ -129,14 +129,14 @@ class Farm(tk.Frame):  # try
      
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
-        r1 = tk.Toplevel()
-        r1.title('Seed Store')
-        r1.geometry('1000x800')
+        self.r1 = tk.Toplevel()
+        self.r1.title('Seed Store')
+        self.r1.geometry('1000x800')
 
         # 產生button
-        self.button_seed_package_pepper = tk.Button(r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
-        self.button_seed_package_eggplant = tk.Button(r1, image = self.image_seed_package_eggplant, command = self.put_eggplantsd)
-        self.button_seed_package_coriander = tk.Button(r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
+        self.button_seed_package_pepper = tk.Button(self.r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
+        self.button_seed_package_eggplant = tk.Button(self.r1, image = self.image_seed_package_eggplant, command = self.put_eggplantsd)
+        self.button_seed_package_coriander = tk.Button(self.r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
 
         # grid 上去
         #sticky = tk.N+tk.S
@@ -144,11 +144,11 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_pepper.grid(row = 5, column = 1, padx = 50, pady = 90)
         self.button_seed_package_eggplant.grid(row = 5, column = 3, padx = 50, pady = 90)
         self.button_seed_package_coriander.grid(row = 5, column = 5, padx = 50, pady = 90)
-        lab1 = tk.Label(r1, text='青椒種子', height=2, width=15, bg='white', fg='black')
+        lab1 = tk.Label(self.r1, text='青椒種子', height=2, width=15, bg='white', fg='black')
         lab1.grid(row=7, column=1, padx = 90, ipadx = 10, ipady = 10)
-        lab2 = tk.Label(r1, text='茄子種子', height=2, width=15, bg='white', fg='black')
+        lab2 = tk.Label(self.r1, text='茄子種子', height=2, width=15, bg='white', fg='black')
         lab2.grid(row=7, column=3, padx = 90, ipadx = 10, ipady = 10)
-        lab3 = tk.Label(r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
+        lab3 = tk.Label(self.r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
         lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
         
         #if self.seeded is True:
@@ -161,7 +161,8 @@ class Farm(tk.Frame):  # try
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
-        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+        # tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+        self.r1.destroy()
         
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
@@ -169,7 +170,8 @@ class Farm(tk.Frame):  # try
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
-        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+        self.r1.destroy()
+        # tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
          
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
@@ -177,7 +179,8 @@ class Farm(tk.Frame):  # try
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
-        tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
+        self.r1.destroy()
+        # tk.messagebox.showwarning('小提示','請關掉種子商店視窗唷')
          
     # 圖鑑功能
     def click_button_book(self):
