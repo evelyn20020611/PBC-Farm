@@ -117,15 +117,16 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_coriander = tk.Button(r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
 
         # grid 上去
-        self.button_seed_package_pepper.grid(row = 1, column = 0, sticky = tk.N+tk.S)
-        self.button_seed_package_eggplant.grid(row = 1, column = 1, sticky = tk.N+tk.S)
-        self.button_seed_package_coriander.grid(row = 1, column = 2, sticky = tk.N+tk.S)
+        #sticky = tk.N+tk.S
+        self.button_seed_package_pepper.grid(row = 1, column = 0)
+        self.button_seed_package_eggplant.grid(row = 1, column = 1)
+        self.button_seed_package_coriander.grid(row = 1, column = 2)
         lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
-        lab1.grid(row=2, column=0, sticky = tk.N+tk.S)
+        lab1.grid(row=2, column=0)
         lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
-        lab2.grid(row=2, column=1, sticky = tk.N+tk.S)
+        lab2.grid(row=2, column=1)
         lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
-        lab3.grid(row=2, column=2, sticky = tk.N+tk.S)
+        lab3.grid(row=2, column=2)
 
 
     # 種子商店功能-青椒種子
