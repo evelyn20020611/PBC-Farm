@@ -135,15 +135,15 @@ class Farm(tk.Frame):  # try
             if a == "yes":
             
                 if target == "coriander":
-                    self.background_label.destroy()
+                    self.image_pot_with_seed_label.destroy()
                     self.small_coriander_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 if target == "eggplant":
-                    self.empty_pot_label.destroy()
+                    self.image_pot_with_seed_label.destroy()
                     self.small_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
                        
                 if target == "pepper":
-                    self.empty_pot_label.destroy()
+                    self.image_pot_with_seed_label.destroy()
                     self.small_pepper_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 self.pas = "yes"
