@@ -72,15 +72,6 @@ class Farm(tk.Frame):  # try
         self.button_book.grid(row = 1, column = 2)
 
  
-        '''
-        # grid 的部分寫這邊_修改後的
-        self.background_label.grid(row = 0, column = 0, columnspan = 10, rowspan = 11)
-        self.button_back.grid(row = 1, column = 0)
-        self.button_book.grid(row = 8, column = 0)
-        self.button_seedstore.grid(row = 9, column = 0)
-        self.button_waterer.grid(row = 10, column = 5)
-        '''
- 
         
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
@@ -90,14 +81,14 @@ class Farm(tk.Frame):  # try
         seed_store.geometry('500x300')
 
         # 產生button
-        self.button_seed_pepper = tk.Button(master = seed_store, text = 'pepper' , command = self.put_peppersd)
-        self.button_seed_eggplant = tk.Button(master = seed_store, text = 'eggplant', command = self.put_eggplantsd)
-        self.button_seed_coriander = tk.Button(master = seed_store, text = 'coriander', command = self.put_coriandersd)
+        button_seed_pepper = tk.Button(master = seed_store, text = 'pepper' , command = self.put_peppersd)
+        button_seed_eggplant = tk.Button(master = seed_store, text = 'eggplant', command = self.put_eggplantsd)
+        button_seed_coriander = tk.Button(master = seed_store, text = 'coriander', command = self.put_coriandersd)
 
         # grid 上去
-        self.button_seed_pepper.grid(row = 0, column = 0)
-        self.button_seed_eggplant.grid(row = 0, column = 1)
-        self.button_seed_coriander.grid(row = 0, column = 2)
+        button_seed_pepper.grid(row = 0, column = 0)
+        button_seed_eggplant.grid(row = 0, column = 1)
+        button_seed_coriander.grid(row = 0, column = 2)
 
 
 
@@ -130,7 +121,7 @@ class Farm(tk.Frame):  # try
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
 
-                
+    '''            
     # 圖鑑功能
     def click_button_book(self):
         illustrated_book = tk.Tk()
@@ -138,11 +129,10 @@ class Farm(tk.Frame):  # try
         illustrated_book.geometry('500x300')
 
 
-
         image_big_coriander.grid(row = 1, column = 0)
         image_big_eggplant.grid(row = 1, column = 1)
         image_big_pepper.grid(row = 1, column = 2)
-
+    '''
 
 
     # 澆水器功能
@@ -223,7 +213,8 @@ game.master.title("PBC Farm")
 game.mainloop()
 
 
-''' 如果要用resize的話，路徑再改，還有size再變動
+''' 
+如果要用resize的話，路徑再改，還有size再變動
 def createWidgets(self):
 # 匯入圖片的部分寫這邊self.image_ = ImageTk.PhotoImage(file = 'graph/.png')  # 
 
