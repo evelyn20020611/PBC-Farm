@@ -117,9 +117,9 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_coriander = tk.Button(r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
 
         # grid 上去
-        self.button_seed_package_pepper.grid(row = 0, column = 0, sticky = N+S)
-        self.button_seed_package_eggplant.grid(row = 0, column = 1, sticky = N+S)
-        self.button_seed_package_coriander.grid(row = 0, column = 2, sticky = N+S)
+        self.button_seed_package_pepper.grid(row = 0, column = 0, sticky = tk.N+tk.S)
+        self.button_seed_package_eggplant.grid(row = 0, column = 1, sticky = tk.N+tk.S)
+        self.button_seed_package_coriander.grid(row = 0, column = 2, sticky = tk.N+tk.S)
         lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
         lab1.grid(row=1, column=0, sticky = tk.N+tk.S)
         lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
