@@ -36,6 +36,7 @@ class Farm(tk.Frame):  # try
 
     # 計時器
     def Timer(self):
+        return
         self.Timer_ended = False
         self.start_time = time.time()
         self.end_time = self.start_time + 8
@@ -266,7 +267,7 @@ class Farm(tk.Frame):  # try
         # 產生澆水鍵，消除採收鍵     
         self.button_harvest.destroy()
         self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
-
+        self.button_save.grid(row = 0, column = 5)
 
         # destroy 大植物
         if self.target == "coriander":
@@ -284,6 +285,7 @@ class Farm(tk.Frame):  # try
         self.level = 0
         self.seeded = False
         self.Timer_ended = True
+        self.label_button_harvest.destroy()
 
 
 
@@ -362,6 +364,9 @@ class Farm(tk.Frame):  # try
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 self.button_harvest.grid(row = 10, column = 5, sticky=(tk.W))
+                self.label_button_waterer.destroy()
+                self.label_button_harvest = tk.Label(self, text='採收!', height=1, width=15, bg='white', fg='black')
+                self.label_button_harvest.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
 
             else:
                 tk.messagebox.showerror('答錯了','學海無涯，回頭是岸')
