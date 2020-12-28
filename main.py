@@ -1,6 +1,7 @@
 from PIL import ImageTk
 import tkinter as tk
 import tkinter.font as tkFont
+from PIL import Image
 
 class Farm(tk.Frame):
     def __init__(self):
@@ -35,27 +36,33 @@ class Farm(tk.Frame):
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
 
+        #self.image_seedstore_icon = self.image_seedstore_icon.resize((80,60),Image.ANTIALIAS)
         # 產生label的部分寫這邊
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
 
         # 產生button 的部分寫這邊
-        self.button_book = tk.Button(self, image=self.image_book_icon)
-        self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon)
+        self.button_book = tk.Button(self, image=self.image_book_icon, command = self.click_button_book)
+        self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command  = self.click_button_seedstore)
         self.button_seed_pepper = tk.Button(self, image=self.image_seed_pepper)
         self.button_seed_eggplan = tk.Button(self, image=self.image_seed_eggplant)
         self.button_seed_coriander = tk.Button(self, image=self.image_seed_coriander)
-        self.button_back = tk.Button(self, image=self.image_back_icon)
-        self.button_waterer = tk.Button(self, image = self.image_waterer, command=self.click_button_waterer, height=1, width=2)
+        self.button_back = tk.Button(self, image=self.image_back_icon, command = self.click_button_back)
+        self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
+        
+
 
         # grid 的部分寫這邊
-        self.background_label.grid(row = 0, column = 0, columnspan = 10)
-        self.button_back.grid(row = 1, column = 0, columnspan = 10)
-        self.button_book.grid(row = 8, column = 0, columnspan = 10)
-        self.button_seedstore.grid(row = 9, column = 0, columnspan = 10)
-        self.button_waterer.grid(row = 10, column = 5, columnspan = 10)
+        self.background_label.grid(row = 0, column = 0)
+        self.button_back.grid(row = 1, column = 1)
+        self.button_seedstore.grid(row = 1, column = 2)
+
+        self.button_waterer.grid(row = 1, column = 3)
+        self.button_book.grid(row = 1, column = 4)
+
+
         
     # 種子商店
-    def open_store(): # 點了種子商店按鈕後的function
+    def open_store(self): # 點了種子商店按鈕後的function
         global open_store  # 不確定這行要不要
         seed_store = tk.Tk()
         seed_store.title('Seed Store')
@@ -90,12 +97,18 @@ class Farm(tk.Frame):
             self.button_exit.grid(row = 1, column = 2, columnspan = 10)
 
     def click_button_waterer(self):
-        self.lb1Num.configure("")  # 配置，回傳文字1
+        print('aaaa')
+        pass  # 配置，回傳文字1
 
-    #def click_button_back(self):
+    def click_button_back(self):
+        pass
+
+    def click_button_seedstore(self):
+        pass   
         
 
     def click_button_book(self):
+        pass
         self.image_book.grid(row = 3, column = 3, columnspan = 10)
         self.image_big_coriander.grid(row = 5, column = 3, columnspan = 10)
         self.image_big_eggplant.grid(row = 5, column = 4, columnspan = 10)
