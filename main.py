@@ -89,15 +89,12 @@ class Farm(tk.Frame):  # try
         self.small_coriander_label = tk.Label(self,image=self.image_small_coriander)  #產生small_coriander盆栽
         self.mid_coriander_label = tk.Label(self,image=self.image_mid_coriander)  #產生mid_coriander盆栽
         self.big_coriander_label = tk.Label(self,image=self.image_big_coriander)  #產生big_coriander盆栽
-        
         self.small_pepper_label = tk.Label(self,image=self.image_small_pepper)  #產生small_pepper盆栽
         self.mid_pepper_label = tk.Label(self,image=self.image_mid_pepper)  #產生mid_pepper盆栽
         self.big_pepper_label = tk.Label(self,image=self.image_big_pepper)  #產生big_pepper盆栽
-        
         self.small_eggplant_label = tk.Label(self,image=self.image_small_eggplant)  #產生small_eggplant盆栽
         self.mid_eggplant_label = tk.Label(self,image=self.image_mid_eggplant)  #產生mid_eggplant盆栽
         self.big_eggplant_label = tk.Label(self,image=self.image_big_eggplant)  #產生big_eggplant盆栽
-        
         self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed
 
 
@@ -109,30 +106,24 @@ class Farm(tk.Frame):  # try
         self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
         
          # 標示圖片下文字說明
-        labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
-        labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
-        label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
-        label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
-        label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
-        label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
+        self.labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
+        self.labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
+        self.label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
+        self.label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
+        self.label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
+        self.label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
         
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
-        self.button_seedstore.grid(row = 1, column = 0)
-        self.button_waterer.grid(row = 1, column = 2)
-        self.button_book.grid(row = 1, column = 4)
-        self.timer_label.grid(row = 2, column = 0, columnspan = 5)
-        self.button_save.grid(row = 3, column = 0, columnspan = 5)
-        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
-
         self.button_seedstore.grid(row = 10, column = 1, sticky=(tk.W))
         self.button_waterer.grid(row = 10, column = 5, sticky=(tk.W))
         self.button_book.grid(row = 10, column = 9, sticky=(tk.W))
         self.timer_label.grid(row = 0, column = 0, sticky=(tk.W))
         self.button_save.grid(row = 0, column = 5)
 
-        self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
+        if self.target == "":
+            self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
 
 
 
@@ -282,6 +273,7 @@ class Farm(tk.Frame):  # try
 
         self.amount[self.target] += 1
         self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
+        self.button_save.grid(row = 0, column = 5)
         self.level = 0
         self.seeded = False
         self.Timer_ended = True
