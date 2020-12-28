@@ -6,6 +6,7 @@ from PIL import Image
 import tkinter.messagebox #這個是訊息框，對話方塊的關鍵
 import time
 import json
+import random
 
 class Farm(tk.Frame):  # try
     def __init__(self):
@@ -23,6 +24,7 @@ class Farm(tk.Frame):  # try
         self.createWidgets()
         self.init_grid()
         self.read_data()
+        self.question_libary()
 
 
     def read_data(self):
@@ -106,27 +108,33 @@ class Farm(tk.Frame):  # try
         self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
         
          # 標示圖片下文字說明
-        self.labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
-        self.labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
-        self.label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
-        self.label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
-        self.label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
-        self.label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
+        labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
+        labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
+        label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
+        label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
+        label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
+        label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
         
 
     def init_grid(self):
         # 初始grid 的部分寫這邊
+        self.button_seedstore.grid(row = 1, column = 0)
+        self.button_waterer.grid(row = 1, column = 2)
+        self.button_book.grid(row = 1, column = 4)
+        self.timer_label.grid(row = 2, column = 0, columnspan = 5)
+        self.button_save.grid(row = 3, column = 0, columnspan = 5)
+        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
+
         self.button_seedstore.grid(row = 10, column = 1, sticky=(tk.W))
         self.button_waterer.grid(row = 10, column = 5, sticky=(tk.W))
         self.button_book.grid(row = 10, column = 9, sticky=(tk.W))
         self.timer_label.grid(row = 0, column = 0, sticky=(tk.W))
         self.button_save.grid(row = 0, column = 5)
 
-        if self.target == "":
-            self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
+        self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
 
 
-     
+
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
         self.r1 = tk.Toplevel()
@@ -273,16 +281,15 @@ class Farm(tk.Frame):  # try
 
         self.amount[self.target] += 1
         self.empty_pot_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
-        self.button_save.grid(row = 0, column = 5)
         self.level = 0
         self.seeded = False
         self.Timer_ended = True
-        self.label_button_harvest.destroy()
 
 
 
     # 澆水器功能（完成）
     def click_button_waterer(self):
+        ranQ = self.ran_question()
         if not self.seeded:
             tk.messagebox.showerror('尚未選擇種子','你的盆栽是空的....\n去種子商店選一種種子吧！')
             return
@@ -293,10 +300,9 @@ class Farm(tk.Frame):  # try
         target = self.target
         self.pas = "no"
         if self.level == 0:
-            #   小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","捷運中有哪一條線有經過台北車站？(答案:紅線)")
+            a = tk.messagebox.askquestion("澆水小問題",ranQ)
             print("a", a)
-            if a == "yes":
+            if a == self.question_libary[ranQ]:
                 self.Timer()
             
                 if target == "coriander":
@@ -312,14 +318,14 @@ class Farm(tk.Frame):  # try
                     self.small_pepper_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 self.pas = "yes"
+            else:
+                tk.messagebox.showerror('答錯了','學海無涯，回頭是岸')
 
         if self.level == 1:
-            # 小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","哪一個不是韓國三大經紀公司？(答案：Woollim)")
+            a = tk.messagebox.askquestion("澆水小問題",ranQ)
             print("a", a)
-            if a == "yes":
+            if a == self.question_libary[ranQ]:
                 self.Timer()
-            
                 if target == "coriander":
                     self.small_coriander_label.destroy()
                     self.mid_coriander_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
@@ -333,12 +339,14 @@ class Farm(tk.Frame):  # try
                     self.mid_pepper_label.grid(row = 0,column = 0, rowspan = 10, columnspan = 11)
                     
                 self.pas = "yes"
+            else:
+                tk.messagebox.showerror('答錯了','學海無涯，回頭是岸')
             
         
         if self.level == 2:
             #   小問題請改以下三行
-            a = tk.messagebox.askquestion("確認","3 x 5 = 15 ?")
-            if a == "yes":
+            a = tk.messagebox.askquestion("澆水小問題",ranQ)
+            if a == self.question_libary[ranQ]:
                 if target == "coriander":
                     self.mid_coriander_label.destroy()
                     self.big_coriander_label.grid(row = 0, column = 0, rowspan = 10, columnspan = 11)
@@ -354,9 +362,9 @@ class Farm(tk.Frame):  # try
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 self.button_harvest.grid(row = 10, column = 5, sticky=(tk.W))
-                self.label_button_waterer.destroy()
-                self.label_button_harvest = tk.Label(self, text='採收!', height=1, width=15, bg='white', fg='black')
-                self.label_button_harvest.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
+
+            else:
+                tk.messagebox.showerror('答錯了','學海無涯，回頭是岸')
 
                 
         if self.pas == "yes":
@@ -366,6 +374,25 @@ class Farm(tk.Frame):  # try
         a = tkinter.messagebox.askquestion(title="儲存遊戲", message="請問要儲存進度嗎？")
         with open("init_data.json","w") as f:
             json.dump([self.amount['coriander'],self.amount['eggplant'],self.amount['pepper'],self.level,self.target], f)
+
+
+    def ran_question(self):
+        ran_question = random.choice(list(self.question_libary))
+        return ran_question
+
+    def question_libary(self):
+        self.question_libary = {"天空是藍色的": "yes","草是綠色的":"yes","在假設通貨膨脹的情況下，用Average cost這種算存貨的方法才能繳比較少的稅":"yes",
+                    "捷運的綠線有經過台北車站":"no" ,"int是種可變的物件":"no",'YG是韓國三大經紀公司':'yes','孔令傑是商管程式設計這門課的老師':'yes','商管程式設計歷年來的平均停修率為20%':'yes',
+                    '商管程助教影片常用(各位同學早安午安晚安)開頭':'yes','你正在玩的小遊戲叫做傳說對決':'no','商管程每周作業都在周一早上9:00截止':'no',
+                    '香菜可以治嘔吐':'yes','一包餅乾16個人分，每人分8塊，不夠3塊；那每人分七塊後，會剩6塊':'yes','遛狗的英文為slide the dog':'no',
+                    '梵谷及高更皆為後印象派畫家':'yes','達達主義盛於一次世界大戰期間':'yes','小說百年孤寂是描述中美洲的故事':'no',
+                    '維克多·雨果是小說罪與罰的作者':'no','杜斯妥也夫斯基是小說戰爭與和平的作者':'no','俄國文豪托爾斯泰未曾得到諾貝爾獎':'yes',
+                    '一九八四，是英國作家喬治·歐威爾所創作的一部反烏托邦小說':'yes','基督山恩仇記為小仲馬的作品':'','查拉圖斯特拉如是說是華格納的作品':'no',
+                    '西線無戰事是海明威的作品':'no','純粹理性批判是康德的哲學作品':'yes','柏拉圖是亞里斯多德的學生':'no','希臘三哲包含柏拉圖、蘇格拉底、亞里斯多德':'yes',
+                    '東羅馬帝國和西羅馬帝國的滅亡時間相差超過1000年':'no','神聖羅馬帝國的首都是羅馬':'no','可麗露是種法國甜點，原料包含牛奶':'yes',
+                    '美式咖啡是義式濃縮加水':'yes','吉利馬札羅是著名的咖啡產地':'yes'
+        
+                    }
 
 
 
