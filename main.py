@@ -132,16 +132,20 @@ class Farm(tk.Frame):  # try
         self.button_seed_package_coriander = tk.Button(r1, image = self.image_seed_package_coriander, command = self.put_coriandersd)
 
         # grid 上去
-        self.button_seed_package_pepper.grid(row = 0, column = 0, sticky = tk.N+tk.S)
-        self.button_seed_package_eggplant.grid(row = 0, column = 1, sticky = tk.N+tk.S)
-        self.button_seed_package_coriander.grid(row = 0, column = 2, sticky = tk.N+tk.S)
-        lab1 = tk.Label(r1, text='青椒種子', height=1, width=15, bg='white', fg='black')
-        lab1.grid(row=1, column=0, sticky = tk.N+tk.S)
-        lab2 = tk.Label(r1, text='茄子種子', height=1, width=15, bg='white', fg='black')
-        lab2.grid(row=1, column=1, sticky = tk.N+tk.S)
-        lab3 = tk.Label(r1, text='香菜種子', height=1, width=15, bg='white', fg='black')
-        lab3.grid(row=1, column=2, sticky = tk.N+tk.S)
-
+        #sticky = tk.N+tk.S
+        # columnspan = 2, rowspan = 2,
+        self.button_seed_package_pepper.grid(row = 5, column = 1, padx = 50, pady = 90)
+        self.button_seed_package_eggplant.grid(row = 5, column = 3, padx = 50, pady = 90)
+        self.button_seed_package_coriander.grid(row = 5, column = 5, padx = 50, pady = 90)
+        lab1 = tk.Label(r1, text='青椒種子', height=2, width=15, bg='white', fg='black')
+        lab1.grid(row=7, column=1, padx = 90, ipadx = 10, ipady = 10)
+        lab2 = tk.Label(r1, text='茄子種子', height=2, width=15, bg='white', fg='black')
+        lab2.grid(row=7, column=3, padx = 90, ipadx = 10, ipady = 10)
+        lab3 = tk.Label(r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
+        lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
+        
+        if self.seeded is True:
+            r1.destroy()
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
@@ -150,7 +154,7 @@ class Farm(tk.Frame):  # try
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
+        
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
         self.seeded = True
@@ -158,7 +162,7 @@ class Farm(tk.Frame):  # try
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
+        
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
         self.seeded = True
@@ -166,7 +170,7 @@ class Farm(tk.Frame):  # try
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-     
+        
     # 圖鑑功能
     def click_button_book(self):
         # 產生視窗
@@ -197,6 +201,46 @@ class Farm(tk.Frame):  # try
         lab22.grid(row=2, column=2)
         lab33 = tk.Label(illustrated_book, text='香菜', height=1, width=15, bg='white', fg='black')
         lab33.grid(row=2, column=3)
+                # 青椒
+        easy_or_not1 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not1.grid(row=4, column=1)
+        easy_or_not11 = tk.Label(illustrated_book, text='★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not11.grid(row=5, column=1)
+        characteristic1 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic1.grid(row=6, column=1)
+        characteristic11 = tk.Label(illustrated_book, text='小孩子都不會吃', height=1, width=15, bg='white', fg='black')
+        characteristic11.grid(row=7, column=1)
+        characteristic111 = tk.Label(illustrated_book, text='害羞又靦腆的Big Girl', height=1, width=15, bg='white', fg='black')
+        characteristic111.grid(row=8, column=1)
+        # 台詞:
+        # 那個><不要害怕吃我嘛…我很營養健康的說！
+        # 茄子
+        easy_or_not2 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not2.grid(row=4, column=2)
+        easy_or_not22 = tk.Label(illustrated_book, text='★★★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not22.grid(row=5, column=2)
+        characteristic2 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic2.grid(row=6, column=2)
+        characteristic22 = tk.Label(illustrated_book, text='食物界的恥辱', height=1, width=15, bg='white', fg='black')
+        characteristic22.grid(row=7, column=2)
+        characteristic222 = tk.Label(illustrated_book, text='講話結巴又台灣國語的小胖', height=1, width=20, bg='white', fg='black')
+        characteristic222.grid(row=8, column=2)
+        # 台詞:
+        # 喂…那、那邊那個帥、帥哥，不要看我這樣，偶是本屆紫色食物PK中奪得「金拍甲」冠軍餒。
+
+        # 香菜
+        easy_or_not3 = tk.Label(illustrated_book, text='難易度', height=1, width=15, bg='white', fg='black')
+        easy_or_not3.grid(row=4, column=3)
+        easy_or_not33 = tk.Label(illustrated_book, text='★★★★★', height=1, width=15, font=('TkDefaultFont', 20), fg='yellow')
+        easy_or_not33.grid(row=5, column=3)
+        characteristic3 = tk.Label(illustrated_book, text='迷人的特色：', height=1, width=15, bg='white', fg='black')
+        characteristic3.grid(row=6, column=3)
+        characteristic33 = tk.Label(illustrated_book, text='備受唾棄的噁心東東', height=1, width=15, bg='white', fg='black')
+        characteristic33.grid(row=7, column=3)
+        characteristic333 = tk.Label(illustrated_book, text='窈窕潑辣的大正妹', height=1, width=15, bg='white', fg='black')
+        characteristic333.grid(row=8, column=3)
+        # 台詞:
+        # 是小鮮肉耶~~~姊姊偷偷告訴你，白飯佐香菜很讚啊嘶~快來跟姊姊炒飯~~/////
 
     # 採收功能
     def click_button_harvest(self):
