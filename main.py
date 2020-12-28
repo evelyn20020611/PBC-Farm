@@ -81,6 +81,9 @@ class Farm(tk.Frame):  # try
         self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
         self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
         self.image_hoe = ImageTk.PhotoImage(file = 'graph/hoe.png')  # hoe 鋤頭
+        self.image_letschat = ImageTk.PhotoImage(file = 'graph/letschat.png')  # letschat
+        self.image_1.eggplant = ImageTk.PhotoImage(file = 'graph/1.eggplant.png')  # 1.eggplant 
+        self.image_2.eggplant = ImageTk.PhotoImage(file = 'graph/2.eggplant.png')  # 2.eggplant
 
     def createWidgets(self):
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
@@ -98,6 +101,9 @@ class Farm(tk.Frame):  # try
         self.big_eggplant_label = tk.Label(self,image=self.image_big_eggplant)  #產生big_eggplant盆栽
         
         self.image_pot_with_seed_label = tk.Label(self,image=self.image_pot_with_seed)  # 產生pot_with_seed
+        self.image_letschat_label = tk.Label(self,image=self.image_letschat)  # 產生self.image_letschat
+        self.image_1.eggplant_label = tk.Label(self,image=self.image_1.eggplant)  # 產生self.image_1.eggplant
+        self.image_2.eggplant_label = tk.Label(self,image=self.image_2.eggplant)  # 產生self.image_2.eggplant
 
 
         # 產生button 的部分寫這邊
