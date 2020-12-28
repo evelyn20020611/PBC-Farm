@@ -128,7 +128,9 @@ class Farm(tk.Frame):  # try
         lab2.grid(row=7, column=3, padx = 90, ipadx = 10, ipady = 10)
         lab3 = tk.Label(r1, text='香菜種子', height=2, width=15, bg='white', fg='black')
         lab3.grid(row=7, column=5, padx = 90, ipadx = 10, ipady = 10)
-
+        
+        if self.seeded is True:
+            r1.destroy
 
     # 種子商店功能-青椒種子
     def put_peppersd(self):
@@ -137,7 +139,7 @@ class Farm(tk.Frame):  # try
         self.target = "pepper"  
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
+        
     # 種子商店功能-茄子種子
     def put_eggplantsd(self): 
         self.seeded = True
@@ -145,7 +147,7 @@ class Farm(tk.Frame):  # try
         self.target = "eggplant"
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-
+        
     # 種子商店功能-香菜種子
     def put_coriandersd(self):
         self.seeded = True
@@ -153,7 +155,7 @@ class Farm(tk.Frame):  # try
         self.target = "coriander"  # 設立target
         self.empty_pot_label.destroy()
         self.image_pot_with_seed_label.grid(row = 0,column = 0,columnspan = 5)
-     
+        
     # 圖鑑功能
     def click_button_book(self):
         # 產生視窗
