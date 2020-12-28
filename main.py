@@ -41,7 +41,9 @@ class Farm(tk.Frame):  # try
         self.image_back_icon = ImageTk.PhotoImage(file = 'graph/back_icon.png')  # back_icon
         self.image_conversation = ImageTk.PhotoImage(file = 'graph/conversation.PNG')  # conversation 種子對話框
         self.image_pot_with_seed = ImageTk.PhotoImage(file = 'graph/pot_with_seed.jpg')  # pot_with_seed
-
+        self.image_big_coriander_ill = ImageTk.PhotoImage(file = 'graph/big_coriander_ill.png')
+        self.image_big_pepper_ill = ImageTk.PhotoImage(file = 'graph/big_pepper_ill.png')
+        self.image_big_eggplant_ill = ImageTk.PhotoImage(file = 'graph/big_eggplant_ill.png')
 
         # 產生label的部分寫這邊
         self.background_label = tk.Label(self, image=self.image_bg)  # 產生背景圖片
@@ -113,20 +115,25 @@ class Farm(tk.Frame):  # try
            
     # 圖鑑功能
     def click_button_book(self):
-        illustrated_book = tk.Tk()
-        illustrated_book.title('illustrated_book')
+        # 產生視窗
+        illustrated_book = tk.Toplevel()
+        illustrated_book.title('illustration_book')
         illustrated_book.geometry('500x300')
 
+        # 產生label
+        big_coriander_label = tk.Label(illustrated_book, image = self.image_big_coriander_ill)
+        big_pepper_label = tk.Label(illustrated_book, image = self.image_big_pepper_ill)
+        big_eggplant_label = tk.Label(illustrated_book, image = self.image_big_eggplant_ill)
 
-        image_big_coriander.grid(row = 1, column = 0)
-        image_big_eggplant.grid(row = 1, column = 1)
-        image_big_pepper.grid(row = 1, column = 2)
+        big_coriander_label.grid(row = 1, column = 1)
+        big_pepper_label.grid(row = 1, column = 2)
+        big_eggplant_label.grid(row = 1, column = 3)
 
 
     # 澆水器功能
     def click_button_waterer(self):
         a = ""
-        target = "coriander"
+        target = self.target
         self.pas = "no"
         if self.level == 0:
             #   小問題請改以下三行
