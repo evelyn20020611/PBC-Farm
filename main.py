@@ -156,7 +156,7 @@ class Farm(tk.Frame):  # try
         seed_store.geometry('500x300')
 
         # 產生button
-        button_seed_pepper = tk.Button(master = seed_store, text = '1', command = self.put_peppersd)
+        button_seed_pepper = tk.Button(master = seed_store, image = self.image_seed_package_pepper , command = self.put_peppersd)
         button_seed_eggplant = tk.Button(master = seed_store, text = '2', command = self.put_eggplantsd)
         button_seed_coriander = tk.Button(master = seed_store, text = '3', command = self.put_eggplantsd)
 
@@ -165,28 +165,15 @@ class Farm(tk.Frame):  # try
         button_seed_eggplant.grid(row = 0, column = 1)
         button_seed_coriander.grid(row = 0, column = 2)
 
-        self.havesd = 0
-
-
 
     def put_peppersd(self):
         self.target = "pepper"  # 設立target
                                 # 放置pot with seed
 
-
-    
-
     def put_eggplantsd(self): 
-        self.havesd = 1
-        self.Label_eggplantsd = tk.Label(seed_store, image = self.image_seed_eggplant)
-        self.eggplantsd.grid(row = 5.5 , column = 5, columnspan = 10)
         self.target = "eggplant"
 
-
     def put_coriandersd(self):
-        self.havesd = 1
-        self.Label_coriandersd = tk.Label(seed_store, image = self.image_seed_coriander)
-        self.coriandersd.grid(row = 5.5 , column = 5, columnspan = 10)
         self.target = "coriander"
 
 
