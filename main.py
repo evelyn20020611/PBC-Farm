@@ -111,7 +111,7 @@ class Farm(tk.Frame):  # try
          # 標示圖片下文字說明
         labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
         labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
-        label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
+        label_button_waterer = tk.Label(self, text='澆水器/採收器', height=1, width=15, bg='white', fg='black')
         label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
         label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
         label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
@@ -363,7 +363,6 @@ class Farm(tk.Frame):  # try
                 self.pas = "yes"
                 self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 self.button_harvest.grid(row = 10, column = 5, sticky=(tk.W))
-                self.label_button_waterer.destroy()
                 self.label_button_harvest = tk.Label(self, text='採收!', height=1, width=15, bg='white', fg='black')
                 self.label_button_harvest.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
 
