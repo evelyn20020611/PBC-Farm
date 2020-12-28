@@ -106,7 +106,7 @@ class Farm(tk.Frame):  # try
         self.button_seedstore = tk.Button(self, image=self.image_seedstore_icon, command = self.open_store)
         self.button_waterer = tk.Button(self, image = self.image_waterer, command = self.click_button_waterer)
         self.button_harvest = tk.Button(self, image = self.image_hoe, command = self.click_button_harvest)
-        self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
+        self.button_save = tk.Button(self, text = "儲存進度", command = self.click_button_save)
         
          # 標示圖片下文字說明
         labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
