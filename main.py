@@ -133,11 +133,11 @@ class Farm(tk.Frame):
 
         
         # 初始grid 的部分寫這邊
-        self.background_label.grid(row = 0, column = 0, columnspan = 5)
+        self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
 
 
         # grid 的部分寫這邊
-        self.background_label.grid(row = 0, column = 0)
+        #self.background_label.grid(row = 0, column = 0)
         self.button_back.grid(row = 1, column = 1)
         self.button_seedstore.grid(row = 1, column = 2)
         self.button_waterer.grid(row = 1, column = 3)
@@ -219,7 +219,7 @@ class Farm(tk.Frame):
         print('aaaa')
     '''
 
-
+    def click_button_waterer(self):
         self.pas = "no"
         if self.level == 0:
             #   小問題請改以下三行
@@ -229,7 +229,7 @@ class Farm(tk.Frame):
             
                 if target == "coriander":
                     self.empty_pot_label.destroy()
-                    self.small_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.small_coriander_label.grid(row = 0,column = 0, sticky=(tk.W))
                     
                 if target == "eggplant":
                     self.empty_pot_label.destroy()
@@ -249,7 +249,7 @@ class Farm(tk.Frame):
             
                 if target == "coriander":
                     self.small_coriander_label.destroy()
-                    self.mid_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.mid_coriander_label.grid(row = 0,column = 0, sticky=(tk.W))
                     
                 if target == "eggplant":
                     self.small_eggplant_label.destroy()
@@ -305,25 +305,26 @@ class Farm(tk.Frame):
 
 
     def click_button_waterer(self):
-        #self.lb1Num.configure("")  # 配置，回傳文字1
+        a = ""
+        target = "coriander"
         self.pas = "no"
         if self.level == 0:
             #   小問題請改以下三行
-            #a = tk.messagebox.askquestion("確認","捷運中有哪一條線有經過台北車站？(答案:紅線)")
+            a = tk.messagebox.askquestion("確認","捷運中有哪一條線有經過台北車站？(答案:紅線)")
             print("a", a)
             if a == "yes":
             
                 if target == "coriander":
-                    self.empty_pot_label.destroy()
-                    self.small_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.background_label.destroy()
+                    self.small_coriander_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 if target == "eggplant":
                     self.empty_pot_label.destroy()
-                    self.small_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.small_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
                        
                 if target == "pepper":
                     self.empty_pot_label.destroy()
-                    self.small_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.small_pepper_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 self.pas = "yes"
 
@@ -335,15 +336,15 @@ class Farm(tk.Frame):
             
                 if target == "coriander":
                     self.small_coriander_label.destroy()
-                    self.mid_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.mid_coriander_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 if target == "eggplant":
                     self.small_eggplant_label.destroy()
-                    self.mid_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.mid_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
                        
                 if target == "pepper":
                     self.small_pepper_label.destroy()
-                    self.mid_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.mid_pepper_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 self.pas = "yes"
             
@@ -355,24 +356,22 @@ class Farm(tk.Frame):
             if a == "yes":
                 if target == "coriander":
                     self.mid_coriander_label.destroy()
-                    self.big_coriander_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.big_coriander_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 if target == "eggplant":
                     self.mid_eggplant_label.destroy()
-                    self.big_eggplant_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.big_eggplant_label.grid(row = 0,column = 0,columnspan = 5)
                        
                 if target == "pepper":
                     self.mid_pepper_label.destroy()
-                    self.big_pepper_label.grid(row = 7,column = 5, sticky=(tk.W))
+                    self.big_pepper_label.grid(row = 0,column = 0,columnspan = 5)
                     
                 self.pas = "yes"
-                self.button_waterer.destroy()   # 澆水器消失，看要不要改
+                #self.button_waterer.destroy()   # 澆水器消失，看要不要改
                 
                 
         if self.pas == "yes":
             self.level += 1
-
-
 
 
 game = Farm()
