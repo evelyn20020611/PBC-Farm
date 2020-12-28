@@ -191,12 +191,12 @@ class Farm(tk.Frame):  # try
         amount_eggplant_label = tk.Label(illustrated_book, text = self.amount['eggplant'], font=('TkDefaultFont', 20))
 
         # grid
-        big_coriander_label.grid(row = 1, column = 3)
-        big_pepper_label.grid(row = 1, column = 1)
-        big_eggplant_label.grid(row = 1, column = 2)
-        amount_coriander_label.grid(row = 3, column = 3)
-        amount_pepper_label.grid(row = 3, column = 1)
-        amount_eggplant_label.grid(row = 3, column = 2)
+        big_coriander_label.grid(row = 1, column = 3, padx = 20,pady = 20)
+        big_pepper_label.grid(row = 1, column = 1, padx = 20,pady = 20)
+        big_eggplant_label.grid(row = 1, column = 2, padx = 20,pady = 20)
+        amount_coriander_label.grid(row = 3, column = 3, padx = 20,pady = 20)
+        amount_pepper_label.grid(row = 3, column = 1, padx = 20,pady = 20)
+        amount_eggplant_label.grid(row = 3, column = 2, padx = 20,pady = 20)
         
         # 標示圖片下文字說明
         lab11 = tk.Label(illustrated_book, text='青椒', height=1, width=15, bg='white', fg='black')
