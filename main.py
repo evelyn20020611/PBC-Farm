@@ -4,6 +4,8 @@ import tkinter as tk
 import tkinter.font as tkFont
 from PIL import Image
 import tkinter.messagebox #這個是訊息框，對話方塊的關鍵
+import time
+
 
 class Farm(tk.Frame):  # try
     def __init__(self):
@@ -12,10 +14,25 @@ class Farm(tk.Frame):  # try
         self.createImages()
         self.createWidgets()
         self.init_grid()
+        self.Timer()
         self.level = 0
         self.pas = "no"
         self.target = ""
         self.seeded = False
+        self.amount = {'coriander':0,'eggplant':0,'pepper':0}
+
+    # 計時器
+    def Timer(self):
+        self.label = tk.Label(text="", font=('Helvetica', 48), fg='black')
+        self.label.grid(row = 2, column = 0, columnspan = 5)
+        self.update_clock()
+
+    # 每秒更新計時器
+    def update_clock(self):
+        now = time.strftime("%H:%M:%S")
+        self.label.configure(text=now)
+        self.after(1000, self.update_clock)
+
 
     def createImages(self):
     	# 匯入圖片的部分寫這邊self.image_ = ImageTk.PhotoImage(file = 'graph/.png')  # 
@@ -82,14 +99,10 @@ class Farm(tk.Frame):  # try
         
     # 種子商店功能
     def open_store(self): # 點了種子商店按鈕後的function
-        # 產生視窗
-        #seed_store = tk.Tk()
-        #seed_store.title('Seed Store')
-        #seed_store.geometry('500x300')
-        
+
         r1 = tk.Toplevel()
         r1.title('Seed Store')
-        r1.geometry('800x600')
+        r1.geometry('1000x800')
 
         # 產生button
         self.button_seed_package_pepper = tk.Button(r1, image = self.image_seed_package_pepper , command = self.put_peppersd)
@@ -140,16 +153,23 @@ class Farm(tk.Frame):  # try
         big_coriander_label = tk.Label(illustrated_book, image = self.image_big_coriander_ill)
         big_pepper_label = tk.Label(illustrated_book, image = self.image_big_pepper_ill)
         big_eggplant_label = tk.Label(illustrated_book, image = self.image_big_eggplant_ill)
+        amount_coriander_label = tk.Label(illustrated_book, text = self.amount['coriander'])
+        amount_pepper_label = tk.Label(illustrated_book, text = self.amount['pepper'])
+        amount_eggplant_label = tk.Label(illustrated_book, text = self.amount['eggplant'])
 
+        # grid
         big_coriander_label.grid(row = 1, column = 1)
         big_pepper_label.grid(row = 1, column = 2)
         big_eggplant_label.grid(row = 1, column = 3)
+        amount_coriander_label.grid(row = 2, column = 1)
+        amount_pepper_label.grid(row = 2, column = 2)
+        amount_eggplant_label.grid(row = 2, column = 3)
 
     # 採收功能
     def click_button_harvest(self):
-        # 產生澆水鍵，消除採收鍵
-        self.createWidgets()     
-        self.button_harvest.destroy()  
+        # 產生澆水鍵，消除採收鍵     
+        self.button_harvest.destroy()
+        self.createWidgets()
         self.button_waterer.grid(row = 1, column = 2)
 
         # destroy 大植物
@@ -160,6 +180,7 @@ class Farm(tk.Frame):  # try
         if self.target == "pepper":
             self.big_pepper_label.destroy()
 
+        self.amount[self.target] += 1
         self.empty_pot_label.grid(row = 0, column = 0, columnspan = 5)
         self.level = 0
         self.seeded = False
@@ -246,6 +267,11 @@ class Farm(tk.Frame):  # try
 game = Farm()
 game.master.title("PBC Farm")
 game.mainloop()
+
+
+
+
+
 
 
 ''' 
