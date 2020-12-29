@@ -36,7 +36,7 @@ class Farm(tk.Frame):  # try
 
     # 計時器
     def Timer(self):
-        return
+        # return
         self.Timer_ended = False
         self.start_time = time.time()
         self.end_time = self.start_time + 8
@@ -106,21 +106,13 @@ class Farm(tk.Frame):  # try
         self.button_save = tk.Button(self, text = "儲存", command = self.click_button_save)
         
          # 標示圖片下文字說明
-<<<<<<< HEAD
         self.labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
         self.labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
         self.label_button_waterer = tk.Label(self, text='澆水器', height=1, width=15, bg='white', fg='black')
         self.label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
         self.label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
         self.label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
-=======
-        labe1_button_seedstore = tk.Label(self, text='種子商店', height=1, width=15, bg='white', fg='black')
-        labe1_button_seedstore.grid(row = 9, column = 1, sticky=(tk.S,tk.W))
-        label_button_waterer = tk.Label(self, text='澆水器/採收器', height=1, width=15, bg='white', fg='black')
-        label_button_waterer.grid(row = 9, column = 5, sticky=(tk.S,tk.W))
-        label_button_book = tk.Label(self, text='圖鑑', height=1, width=15, bg='white', fg='black')
-        label_button_book.grid(row = 9, column = 9, sticky=(tk.S,tk.W))
->>>>>>> 8e39c6f84e6a5bad01b44de8f0150a47c6c2f677
+
         
 
     def init_grid(self):
